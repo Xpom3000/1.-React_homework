@@ -1,4 +1,4 @@
-export default function Cardsitem({ topic, title }) {
+export default function Cardsitem({ topic, title, date }) {
   return (
     <div className="cards__item">
       <div className="cards__card card">
@@ -47,7 +47,7 @@ export default function Cardsitem({ topic, title }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>30.10.23</p>
+            <p>{date}</p>
           </div>
         </div>
       </div>

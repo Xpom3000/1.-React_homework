@@ -7,11 +7,7 @@ export default function Column({title, cardList}) {
               <p>{title}</p>
             </div>
         <div className="cards">
-          {cardList.map((card) => <Card topic={card.theme} title={card.title} key={card.id } /> )}
-                {/* <Card topic={"Research"} title={"Новая задача"} />
-                <Card topic={"Web design"} title={"Новая задача"} />
-                <Card topic={"Copywriting"} title={"Новая задача"} />
-                <Card topic={"Web design"} title={"Новая задача"} /> */}
+          {cardList.map((card) => <Card topic={card.theme} title={card.title} date={card.date} key={card.id } /> )}
             </div>
           </div>
     )
