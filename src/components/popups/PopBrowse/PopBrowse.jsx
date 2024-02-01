@@ -1,4 +1,4 @@
-export default function PopBrowser() {
+export default function PopBrowse() {
     return (
         <div className="pop-browse" id="popBrowse">
     <div className="pop-browse__container">
