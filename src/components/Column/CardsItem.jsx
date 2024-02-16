@@ -1,11 +1,13 @@
+import *as S from "./Carditem.styled";
+import { topicHesder } from "../../lib/topic";
 export default function Cardsitem({ topic, title, date }) {
   return (
     <div className="cards__item">
       <div className="cards__card card">
         <div className="card__group">
-          <div className="card__theme _orange">
-            <p className="_orange">{topic}</p>
-          </div>
+          <S.CardTopic $themeColor={topicHesder[topic]}>
+            <S.TopicText>{topic}</S.TopicText>
+          </S.CardTopic>
           <a href="#popBrowse" target="_self">
             <div className="card__btn">
               <div />
