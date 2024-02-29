@@ -1,4 +1,5 @@
 import Card from "./CardsItem";
+import * as S from ""
 
 export default function Column({title, cardList}) {
     return (
