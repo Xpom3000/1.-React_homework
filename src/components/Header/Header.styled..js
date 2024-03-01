@@ -16,3 +16,10 @@ export const HeaderBlock = styled.div`
   left: 0;
   padding: 0 10px;
 `;
+export const HeaderNav = styled.nav`
+  max-width: 290px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

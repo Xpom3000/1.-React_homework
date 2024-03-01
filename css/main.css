@@ -51,12 +51,12 @@ body {
   background-color: #F1F1F1;
 }
 
-.container {
+/* .container {
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-}
+} */
 
 ._hover01:hover {
   background-color: #33399b;
@@ -732,13 +732,13 @@ body {
 .header__logo img {
   width: 85px;
 }
-.header__nav {
+/* .header__nav {
   max-width: 290px;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 .header__btn-main-new {
   width: 178px;
   height: 30px;

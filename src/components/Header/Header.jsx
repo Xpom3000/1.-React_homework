@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { HeaderBlock, StyleHeader } from "./Header.styled.";
+import * as S from "./Header.styled.";
+import { Container } from "../../styled/common/Common.styled";
 
 export default function Header({addCard}) {
   const [isOpened, setIsOpened] = useState(false); 
@@ -7,9 +8,9 @@ export default function Header({addCard}) {
     setIsOpened ((prev) => !prev )
   }
     return (
-      <StyleHeader>
-        <div className="container">
-          <HeaderBlock>
+      <S.StyleHeader>
+        <Container>
+          <S.HeaderBlock>
             <div className="header__logo _show _light">
               <a href="" target="_self">
                 <img src="./images/logo.png" alt="logo" />
@@ -20,7 +21,7 @@ export default function Header({addCard}) {
                 <img src="./images/logo_dark.png" alt="logo" />
               </a>
             </div>
-            <nav className="header__nav">
+            <S.HeaderNav>
               <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">Создать новую задачу</button>
               <div onClick={togglePopup} className="header__user _hover02">Ivan Ivanov</div>
                   { isOpened && (<div 
@@ -38,9 +39,9 @@ export default function Header({addCard}) {
                   <a href="#popExit">Выйти</a>
                 </button>
               </div>)}
-            </nav>
-          </HeaderBlock>
-        </div>
-      </StyleHeader>
+            </S.HeaderNav>
+          </S.HeaderBlock>
+        </Container>
+      </S.StyleHeader>
     )
 }
