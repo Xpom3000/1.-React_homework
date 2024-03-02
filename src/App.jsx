@@ -6,7 +6,7 @@ import MainContent from "./components/MainContent/MainContent";
 import PopBrowse from "./components/popups/PopBrowse/PopBrowse";
 import PopExit from "./components/popups/PopExit/PopExit";
 import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
-// import { cardList } from "./data";
+import { cardList } from "./data";
 
 const statusList = [
   "Без статуса",
@@ -17,7 +17,7 @@ const statusList = [
 ];
 
 function App() {
-  const [cards, setCards] = useState(null);
+  const [cards, setCards] = useState(cardList);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
