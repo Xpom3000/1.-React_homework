@@ -22,4 +22,7 @@ export const HeaderNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
+export const HeaderLogo = styled.div`
+  width: 85px;
+`;

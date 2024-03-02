@@ -1,30 +1,39 @@
-import { useState } from "react"
+import { useState } from "react";
 import * as S from "./Header.styled.";
 import { Container } from "../../styled/common/Common.styled";
 
-export default function Header({addCard}) {
-  const [isOpened, setIsOpened] = useState(false); 
+export default function Header({ addCard }) {
+  const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
-    setIsOpened ((prev) => !prev )
+    setIsOpened((prev) => !prev);
   }
-    return (
-      <S.StyleHeader>
-        <Container>
-          <S.HeaderBlock>
-            <div className="header__logo _show _light">
-              <a href="" target="_self">
-                <img src="./images/logo.png" alt="logo" />
-              </a>
+  return (
+    <S.StyleHeader>
+      <Container>
+        <S.HeaderBlock>
+          <div className="header__logo _show _light">
+            <a href="" target="_self">
+              <img src="../images/logo.png" alt="logo" />
+            </a>
+          </div>
+          <div className="header__logo _dark">
+            <a href="" target="_self">
+              <img src="../images/logo_dark.png" alt="logo" />
+            </a>
+          </div>
+          <S.HeaderNav>
+            <button
+              onClick={addCard}
+              className="header__btn-main-new _hover01"
+              id="btnMainNew"
+            >
+              Создать новую задачу
+            </button>
+            <div onClick={togglePopup} className="header__user _hover02">
+              Ivan Ivanov
             </div>
-            <div className="header__logo _dark">
-              <a href="" target="_self">
-                <img src="./images/logo_dark.png" alt="logo" />
-              </a>
-            </div>
-            <S.HeaderNav>
-              <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">Создать новую задачу</button>
-              <div onClick={togglePopup} className="header__user _hover02">Ivan Ivanov</div>
-                  { isOpened && (<div 
+            {isOpened && (
+              <div
                 className="header__pop-user-set pop-user-set"
                 id="user-set-target"
               >
@@ -38,10 +47,11 @@ export default function Header({addCard}) {
                 <button type="button" className="_hover03">
                   <a href="#popExit">Выйти</a>
                 </button>
-              </div>)}
-            </S.HeaderNav>
-          </S.HeaderBlock>
-        </Container>
-      </S.StyleHeader>
-    )
+              </div>
+            )}
+          </S.HeaderNav>
+        </S.HeaderBlock>
+      </Container>
+    </S.StyleHeader>
+  );
 }

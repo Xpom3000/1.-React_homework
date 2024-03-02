@@ -85,7 +85,7 @@ body {
   display: block;
 }
 
-._orange {
+/* ._orange {
   background-color: #FFE4C2;
   color: #FF6D00;
 }
@@ -107,7 +107,7 @@ body {
 
 ._active-category {
   opacity: 1 !important;
-}
+} */
 
 .pop-wrap {
   position: relative;
@@ -713,12 +713,12 @@ body {
   display: none;
 }
 
-.header {
+/* .header {
   width: 100%;
   margin: 0 auto;
   background-color: #FFFFFF;
-}
-.header__block {
+} */
+/* .header__block {
   height: 70px;
   display: flex;
   flex-wrap: nowrap;
@@ -728,7 +728,7 @@ body {
   top: 0;
   left: 0;
   padding: 0 10px;
-}
+} */
 .header__logo img {
   width: 85px;
 }
@@ -792,11 +792,11 @@ body {
   z-index: 2;
 }
 
-.main {
+/* .main {
   width: 100%;
   background-color: #EAEEF6;
-}
-.main__block {
+} */
+/* .main__block {
   width: 100%;
   margin: 0 auto;
   padding: 25px 0 49px;
@@ -804,17 +804,17 @@ body {
 .main__content {
   width: 100%;
   display: flex;
-}
+} */
 .main__column {
   width: 20%;
   margin: 0 auto;
   display: block;
 }
 
-.column__title {
+/* .column__title {
   padding: 0 10px;
   margin: 15px 0;
-}
+} */
 .column__title p {
   color: #94A6BE;
   font-size: 14px;
@@ -823,18 +823,18 @@ body {
   text-transform: uppercase;
 }
 
-.cards {
+/* .cards {
   width: 100%;
   display: block;
   position: relative;
-}
-.cards__item {
+} */
+/* .cards__item {
   padding: 5px;
   animation-name: card-animation;
   animation-duration: 500ms;
   animation-timing-function: linear;
-}
-.cards__card {
+} */
+/* .cards__card {
   width: 220px;
   height: 130px;
   background-color: #FFFFFF;
@@ -844,16 +844,16 @@ body {
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
-}
+} */
 
-.card__group {
+/* .card__group {
   width: 100%;
   height: 20px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 .card__theme {
   width: auto;
   height: 20px;
@@ -865,28 +865,28 @@ body {
   font-weight: 600;
   line-height: 10px;
 }
-.card__btn {
+/* .card__btn {
   width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 2px;
-}
-.card__btn div {
+} */
+/* .card__btn div {
   width: 4px;
   height: 4px;
   border-radius: 50%;
   background-color: #94A6BE;
-}
-.card__title {
+} */
+/* .card__title {
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;
-}
-.card__content {
+} */
+/* .card__content {
   height: 64px;
   display: flex;
   flex-direction: column;
@@ -897,7 +897,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
+} */
 .card__date svg {
   width: 13px;
 }
@@ -910,25 +910,25 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-  .main__block {
+  /* .main__block {
     width: 100%;
     margin: 0 auto;
     padding: 40px 0 64px;
   }
   .main__content {
     display: block;
-  }
+  } */
   .main__column {
     width: 100%;
     margin: 0 auto;
     display: block;
   }
-  .cards {
+  /* .cards {
     width: 100%;
     display: flex;
     overflow-y: auto;
-  }
-  .cards__card {
+  } */
+  /* .cards__card {
     width: 220px;
     height: 130px;
     background-color: #FFFFFF;
@@ -938,7 +938,7 @@ body {
     align-items: flex-start;
     justify-content: stretch;
     padding: 15px 13px 19px;
-  }
+  } */
 }
 @media screen and (max-width: 660px) {
   .pop-new-card {
@@ -998,10 +998,10 @@ body {
   }
 }
 @media screen and (max-width: 495px) {
-  .container {
+  /* .container {
     width: 100%;
     padding: 0 16px;
-  }
+  } */
   .header__btn-main-new {
     z-index: 3;
     position: fixed;
