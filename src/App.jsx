@@ -19,6 +19,7 @@ const statusList = [
 function App() {
   const [cards, setCards] = useState(cardList);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
