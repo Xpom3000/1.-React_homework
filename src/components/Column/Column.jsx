@@ -1,4 +1,4 @@
-import Card from "./CardsItem";
+import CardsItem from "../Cards/CardsItem/CardsItem";
 
 export default function Column({title, cardList}) {
     return (
@@ -7,7 +7,7 @@ export default function Column({title, cardList}) {
               <p>{title}</p>
             </div>
         <div className="cards">
-          {cardList.map((card) => <Card topic={card.theme} title={card.title} date={card.date} key={card.id } /> )}
+          {cardList.map((card) => <CardsItem topic={card.theme} title={card.title} date={card.date} key={card.id } /> )}
             </div>
           </div>
     )

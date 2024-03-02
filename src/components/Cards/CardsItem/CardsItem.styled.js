@@ -16,6 +16,6 @@ export const CardTopic = styled.div`
     topicStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
 
   ${TopicText} {
-    color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
+    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#06b16e"};
   }
 `;

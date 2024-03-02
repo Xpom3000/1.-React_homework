@@ -1,10 +1,10 @@
 import * as S from "./CardsItem.styled";
-export default function Cardsitem({ topic, title, date }) {
+export default function CardsItem({ topic, title, date }) {
   return (
     <div className="cards__item">
       <div className="cards__card card">
         <div className="card__group">
-          <S.CardTopic $themeColor={topicHeader[]}>
+          <S.CardTopic $themeColor={topicHeader []}>
             <S.TopicText>{topic}</S.TopicText>
           </S.CardTopic>
           <a href="#popBrowse" target="_self">

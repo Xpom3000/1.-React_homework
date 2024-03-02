@@ -43,7 +43,6 @@ function App() {
         <PopNewCard />
         <PopBrowse />
         {/* pop-up end*/}
-
         <Header addCard={addCard} />
         {isLoading ? (
           "Загрузка..."
@@ -53,11 +52,11 @@ function App() {
               <Column
                 title={status}
                 key={status}
-                cardList={cards.filter((card) => card.status === status)}
+                cardList={cardList.filter((card) => card.status === status)}
               />
             ))}
           </MainContent>
-        )}
+        )} 
       </div>
     </>
   );
