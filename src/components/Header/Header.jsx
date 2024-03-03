@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as S from "./Header.styled.";
 import { Container } from "../../styled/common/Common.styled";
 
+
 export default function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {

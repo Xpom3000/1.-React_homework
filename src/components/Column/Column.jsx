@@ -1,4 +1,5 @@
 import CardsItem from "../Cards/CardsItem/CardsItem";
+
 import *as S from "./Column.styled";
 
 export default function Column({ title, cardList }) {

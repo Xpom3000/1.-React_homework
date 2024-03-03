@@ -18,14 +18,14 @@ export const cardList = [
       theme: "Copywriting",
       title: "Название задачи",
       date: "30.10.23",
-      status: "",
+      status: "В работе",
     },
     {
         id: 4,
       theme: "Copywriting",
       title: "Название задачи",
       date: "30.10.23",
-      status: "Без статуса",
+      status: "Тестирование",
     },
     {   
     id: 5,

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { topicStyles } from "../../../lib/topic";
+
 import { StyledCard } from "../../Column/Column.styled";
 
 export const StyledCardItem = styled.div`
@@ -97,3 +98,4 @@ export const CardTitle = styled.h3`
   color: #000000;
   margin-bottom: 10px;
 `;
+

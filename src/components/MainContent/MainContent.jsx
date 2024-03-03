@@ -1,3 +1,4 @@
+
 import { Container } from "../../styled/common/Common.styled";
 import * as S from "./MainContent.styled";
 
