@@ -24,7 +24,7 @@ export const CardsCard = styled(StyledCard)`
   @media screen and (max-width: 1200px) {
     width: 220px;
     height: 130px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -86,9 +86,23 @@ export const CardContent = styled.div`
 `;
 
 export const CardDate = styled.div`
+  /* Frame 1511838628 */
+  position: relative;
+  width: 59px;
+  height: 13px;
+  gap: 6px;
+  /* Автолейаут */
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0px;
+  color: rgb(148, 166, 190);
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: left;
 `;
 
 export const CardTitle = styled.h3`
@@ -98,4 +112,3 @@ export const CardTitle = styled.h3`
   color: #000000;
   margin-bottom: 10px;
 `;
-
