@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as S from "./Header.styled.";
-import { Container } from "../../common/Common.styled";
+import { Container } from "../../styled/common/Common.styled";
+
 
 export default function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
@@ -13,15 +14,15 @@ export default function Header({ addCard }) {
         <S.HeaderBlock>
           <div className="header__logo _show _light">
             <a href="" target="_self">
-              <img src="./images/logo.png" alt="logo" />
+              <img src="../images/logo.png" alt="logo" />
             </a>
           </div>
           <div className="header__logo _dark">
             <a href="" target="_self">
-              <img src="./images/logo_dark.png" alt="logo" />
+              <img src="../images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <nav className="header__nav">
+          <S.HeaderNav>
             <button
               onClick={addCard}
               className="header__btn-main-new _hover01"
@@ -49,7 +50,7 @@ export default function Header({ addCard }) {
                 </button>
               </div>
             )}
-          </nav>
+          </S.HeaderNav>
         </S.HeaderBlock>
       </Container>
     </S.StyleHeader>
