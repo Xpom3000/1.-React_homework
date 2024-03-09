@@ -2,7 +2,7 @@
 import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SigninPage.styled";
 
-export default function SigninPage() {
+export default function SigninPage({login}) {
 //   const (loginData, setLoginData) = useState({login:"", password:""})
 //   const handleInputChange = (e) => {
 //       const { name, value } = e.target; // Извлекаем имя поля и его значение
@@ -41,7 +41,8 @@ export default function SigninPage() {
                   placeholder="Пароль"
                 />
                 <S.ModalBtnEnter id="btnEnter">
-                  <S.ModalBtnEnterA href="../main.html">Войти</S.ModalBtnEnterA>
+                                  <S.ModalBtnEnterA logout={login}>Войти</S.ModalBtnEnterA>
+                                  <S.ModalBtnEnterA  logout={login}>Войти</S.ModalBtnEnterA>
                 </S.ModalBtnEnter>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>Нужно зарегистрироваться?</S.ModalFormGroupAP>

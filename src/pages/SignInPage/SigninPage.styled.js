@@ -67,7 +67,7 @@ export const ModalInput = styled.input`
     color: #94a6be;
   }
 `;
-export const ModalBtnEnter = styled.button`
+export const ModalBtnEnter = styled.span`
   width: 100%;
   height: 30px;
   background-color: #565eef;
