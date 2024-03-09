@@ -7,7 +7,7 @@ export const BodySignin = styled.body`
   color: #000000;
 `;
 
-export const ContainerSignin = styled.div`
+export const ContainerSignup = styled.div`
   display: block;
   width: 100vw;
   min-height: 100vh;

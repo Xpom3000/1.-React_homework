@@ -160,7 +160,7 @@ a {
   text-decoration: underline;
 } */
 
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) {
   .modal {
     background-color: #FFFFFF;
   }
@@ -175,4 +175,4 @@ a {
   .modal__btn-enter {
     height: 40px;
   }
-}
+} */

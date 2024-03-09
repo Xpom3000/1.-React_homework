@@ -1,16 +1,17 @@
 import { Wrapper } from "../../styled/common/Common.styled";
+import * as S from "./SignupPage.styled";
 
 export default function SignupPage() {
     return (
         <>
         <Wrapper>
-          <div className="container-signup">
-            <div className="modal">
-              <div className="modal__block">
-                <div className="modal__ttl">
+          <S.ContainerSignup>
+            <S.Model>
+              <S.ModalBlock>
+                <S.ModelTtl>
                   <h2>Регистрация</h2>
-                </div>
-                <form className="modal__form-login" id="formLogUp" action="#">
+                </S.ModelTtl>
+                <S.ModalFormLogin id="formLogUp" action="#">
                   <input
                     className="modal__input first-name"
                     type="text"

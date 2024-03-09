@@ -8,6 +8,7 @@ import PrivatRoute from "./components/PrivatRoute/PrivatRoute";
 import MainPage from "./pages/MainPage/MainPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
+import { GlobalStyle } from "./common/GlobalStyle.styled";
 import "./App.css";
 
 export default function App() {
@@ -24,16 +25,22 @@ export default function App() {
   }
 
   return (
-    <Routes>
-      <Route element={<PrivatRoute user={user} />}>
-        <Route path={MainPage} element={<MainPage />}>
-          <Route path={appRoutes.TASK} element={<TaskPage />} />
-          <Route path={appRoutes.EXIT} element={<ExitPage logout={logout} />} />
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route element={<PrivatRoute user={user} />}>
+          <Route path={MainPage} element={<MainPage />}>
+            <Route path={appRoutes.TASK} element={<TaskPage />} />
+            <Route
+              path={appRoutes.EXIT}
+              element={<ExitPage logout={logout} />}
+            />
+          </Route>
         </Route>
-      </Route>
-      <Route path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />
-      <Route path={appRoutes.SIGNUP} element={<SignupPage />} />
-      <Route path={appRoutes.NOT_FOUND} element={<NotFound />} />
-    </Routes>
+        <Route path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />
+        <Route path={appRoutes.SIGNUP} element={<SignupPage />} />
+        <Route path={appRoutes.NOT_FOUND} element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
