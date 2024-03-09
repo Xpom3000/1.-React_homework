@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import { topicHeader } from "../../../lib/topic";
 import * as S from "./CardsItem.styled";
 
-export default function CardsItem({ topic, title, date }) {
+export default function CardsItem({ topic, title, date, id }) {
   return (
     <S.StyledCardItem>
       <S.CardsCard>
@@ -18,11 +19,10 @@ export default function CardsItem({ topic, title, date }) {
           </a>
         </S.CardGrup>
         <S.CardContent>
-          <a href="" target="_blank">
+          <Link to={`task/${id}`}>
             <S.CardTitle>{title}</S.CardTitle>
-          </a>
+          </Link>
           <S.CardDate>
-
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={13}

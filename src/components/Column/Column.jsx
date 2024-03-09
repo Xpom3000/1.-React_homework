@@ -15,6 +15,7 @@ export default function Column({ title, cardList }) {
             title={card.title}
             date={card.date}
             key={card.id}
+            id={card.id}
           />
         ))}
       </S.StyledCard>

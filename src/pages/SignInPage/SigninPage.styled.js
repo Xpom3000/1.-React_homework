@@ -6,13 +6,7 @@ export const BodySignin = styled.body`
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 `;
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  background-color: #eaeef6;
-`;
+
 export const ContainerSignin = styled.div`
   display: block;
   width: 100vw;

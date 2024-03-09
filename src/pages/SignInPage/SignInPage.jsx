@@ -1,25 +1,26 @@
 // import { useState } from "react";
+import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SigninPage.styled";
 
-export default function SignIn() {
-  // const (loginData, setLoginData) = useState({login:"", password:""})
-  // const handleInputChange = (e) => {
-  //     const { name, value } = e.target; // Извлекаем имя поля и его значение
+export default function SigninPage() {
+//   const (loginData, setLoginData) = useState({login:"", password:""})
+//   const handleInputChange = (e) => {
+//       const { name, value } = e.target; // Извлекаем имя поля и его значение
 
-  //     setFormData({
-  //       ...loginData, // Копируем текущие данные из состояния
-  //       [name]: value, // Обновляем нужное поле
-  //     });
-  // };
-  // const handlerLogin = async() => {
-  //     e.preventDefault();
-  //     await signIn(logindata).then((data) => {
-  //         console.loge(data)
-  //     })
-  // }
+//       setFormData({
+//         ...loginData, // Копируем текущие данные из состояния
+//         [name]: value, // Обновляем нужное поле
+//       });
+//   };
+//   const handlerLogin = async() => {
+//       e.preventDefault();
+//       await signIn(logindata).then((data) => {
+//           console.loge(data)
+//       })
+//   }
   return (
     <S.BodySignin>
-      <S.Wrapper>
+      <Wrapper>
         <S.ContainerSignin>
           <S.Model>
             <S.ModalBlock>
@@ -50,7 +51,7 @@ export default function SignIn() {
             </S.ModalBlock>
           </S.Model>
         </S.ContainerSignin>
-      </S.Wrapper>
+      </Wrapper>
     </S.BodySignin>
   );
 }
