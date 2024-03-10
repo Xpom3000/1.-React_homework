@@ -13,22 +13,19 @@ export default function SignupPage() {
               <h2>Регистрация</h2>
             </S.ModelTtl>
             <S.ModalFormLogin id="formLogUp" action="#">
-              <input
-                className="modal__input first-name"
+              <S.ModalInput
                 type="text"
                 name="first-name"
                 id="first-name"
                 placeholder="Имя"
               />
-              <input
-                className="modal__input login"
+              <S.ModalInput
                 type="text"
                 name="login"
                 id="loginReg"
                 placeholder="Эл. почта"
               />
-              <input
-                className="modal__input password-first"
+              <S.ModalInput
                 type="password"
                 name="password"
                 id="passwordFirst"
