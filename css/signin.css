@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -35,7 +35,7 @@ div,
 button,
 a {
   font-family: "Roboto", sans-serif;
-}
+} */
 
 /* .wrapper {
   width: 100%;

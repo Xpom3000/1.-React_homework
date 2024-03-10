@@ -84,7 +84,7 @@ export const ModalInput = styled.input`
   }
 `;
 
-export const ModalBtnEnter = styled.span`
+export const ModalBtnSignupEnter = styled.span`
   width: 100%;
   height: 30px;
   background-color: #565eef;
@@ -107,7 +107,7 @@ export const ModalBtnEnter = styled.span`
   }
 `;
 
-export const ModalBtnEnterA = styled(ModalBtnEnter)`
+export const ModalBtnSignupEnterA = styled(ModalBtnSignupEnter)`
   width: 100%;
   height: 100%;
   color: #ffffff;
