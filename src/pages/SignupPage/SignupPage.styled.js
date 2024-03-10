@@ -107,6 +107,11 @@ export const ModalBtnSignupEnter = styled.span`
   }
 `;
 
+export const Hover01 = styled(ModalBtnSignupEnter)`
+&:hover {
+  background-color: #33399b;
+}`
+
 export const ModalBtnSignupEnterA = styled(ModalBtnSignupEnter)`
   width: 100%;
   height: 100%;
