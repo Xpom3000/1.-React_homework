@@ -21,7 +21,7 @@ export default function SigninPage({ login }) {
   //       })
   //   }
   return (
-    <S.BodySignin>
+    <>
       <Wrapper>
         <S.ContainerSignin>
           <S.Model>
@@ -44,21 +44,22 @@ export default function SigninPage({ login }) {
                 />
                 <S.ModalBtnEnter id="btnEnter">
                   <S.ModalBtnEnterA logout={login}>Войти</S.ModalBtnEnterA>
-                  <S.ModalBtnEnterA logout={login}>Войти</S.ModalBtnEnterA>
                 </S.ModalBtnEnter>
                 <S.ModalFormGroup>
+                  <S.ModalFormGroupAP>
+                    Нужно зарегистрироваться?
+                  </S.ModalFormGroupAP>
+                  <Link to={appRoutes.SIGNUP}>
                     <S.ModalFormGroupAP>
-                         Нужно зарегистрироваться?
+                      Регистрируйтесь здесь
                     </S.ModalFormGroupAP>
-                    <Link to={appRoutes.SIGNUP}>
-                        Регистрируйтесь здесь
-                    </Link>
+                  </Link>
                 </S.ModalFormGroup>
               </S.ModalFormLogin>
             </S.ModalBlock>
           </S.Model>
         </S.ContainerSignin>
       </Wrapper>
-    </S.BodySignin>
+    </>
   );
 }

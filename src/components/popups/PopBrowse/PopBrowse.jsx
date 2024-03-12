@@ -1,19 +1,20 @@
 import { Link, useParams } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
+import * as S from "./PopBrowser.styled";
 
 export default function PopBrowse() {
   const { id } = useParams();
   return (
-    <div className="pop-browse" id="popBrowse">
-      <div className="pop-browse__container">
-        <div className="pop-browse__block">
-          <div className="pop-browse__content">
-            <div className="pop-browse__top-block">
-              <h3 className="pop-browse__ttl">Название задачи: {id}</h3>
+    <S.PopBrouwseStyled id="popBrowse">
+      <S.PopBrouwseContainer>
+        <S.PopBrouwseBlock>
+          <S.PopBrouwseContent>
+            <S.PopBrouwseTopBlock>
+              <S.PopBrouwseTtl>Название задачи: {id}</S.PopBrouwseTtl>
               <div className="categories__theme theme-top _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
-            </div>
+            </S.PopBrouwseTopBlock>
             <div className="pop-browse__status status">
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
@@ -34,7 +35,7 @@ export default function PopBrowse() {
                 </div>
               </div>
             </div>
-            <div className="pop-browse__wrap">
+            <S.PopBrouwseWrap>
               <form
                 className="pop-browse__form form-browse"
                 id="formBrowseCard"
@@ -159,50 +160,51 @@ export default function PopBrowse() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="theme-down__categories theme-down">
+            </S.PopBrouwseWrap>
+            {/* <div className="theme-down__categories theme-down">
               <p className="categories__p subttl">Категория</p>
               <div className="categories__theme _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
-            </div>
-            <div className="pop-browse__btn-browse ">
+            </div> */}
+            <S.PopBrouwseBtnBrouwse>
               <div className="btn-group">
-                <button className="btn-browse__edit _btn-bor _hover03">
-                  <a href="#">Редактировать задачу</a>
-                </button>
-                <button className="btn-browse__delete _btn-bor _hover03">
-                  <a href="#">Удалить задачу</a>
-                </button>
+                <Link to="#">
+                  <S.BtnBor>Редактировать задачу</S.BtnBor>
+                </Link>
+                <Link to="#">
+                  <S.BtnBor>Удалить задачу</S.BtnBor>
+                </Link>
               </div>
               <Link to={appRoutes.MAIN}>
-                <span className="btn-browse__close _btn-bg _hover01">
-                  Закрыть
-                </span>
+                <S.BtnBg>Закрыть</S.BtnBg>
               </Link>
-            </div>
-            <div className="pop-browse__btn-edit _hide">
-              <div className="btn-group">
-                <button className="btn-edit__edit _btn-bg _hover01">
-                  <a href="#">Сохранить</a>
-                </button>
-                <button className="btn-edit__edit _btn-bor _hover03">
-                  <a href="#">Отменить</a>
-                </button>
-                <button
-                  className="btn-edit__delete _btn-bor _hover03"
-                  id="btnDelete"
-                >
-                  <a href="#">Удалить задачу</a>
-                </button>
-              </div>
-              <button className="btn-edit__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </S.PopBrouwseBtnBrouwse>
+            <S.PopBrowseBtnEdit>
+              <S.BtnGroup>
+                <Link to="#">
+                  <S.BtnBg>Сохранить</S.BtnBg>
+                </Link>
+                <Link to="#">
+                <S.BtnBor>
+                  Отменить
+                  </S.BtnBor>
+                </Link>
+                <Link to="#">
+                <S.BtnBor id="btnDelete">
+                  Удалить задачу
+                  </S.BtnBor>
+                  </Link>
+              </S.BtnGroup>
+              <Link to="#">
+              <S.BtnBg>
+                Закрыть
+                </S.BtnBg>
+                </Link>
+            </S.PopBrowseBtnEdit>
+          </S.PopBrouwseContent>
+        </S.PopBrouwseBlock>
+      </S.PopBrouwseContainer>
+    </S.PopBrouwseStyled>
   );
 }

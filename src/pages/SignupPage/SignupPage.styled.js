@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BodySignin = styled.body`
+export const BodySignup = styled.body`
   width: 100%;
   height: 100%;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -24,7 +24,7 @@ export const Model = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 375px) {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 `;
 
@@ -73,6 +73,7 @@ export const ModalInput = styled.input`
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   outline: none;
   padding: 10px 8px;
+  margin-top: 7px;
 
   &::placeholder {
     font-family: "Roboto", sans-serif;
@@ -85,14 +86,12 @@ export const ModalInput = styled.input`
 `;
 
 export const ModalBtnSignupEnter = styled.span`
-  width: 100%;
+  /* width: 100%; */
   height: 30px;
   background-color: #565eef;
   border-radius: 4px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: none;
-  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,6 +100,9 @@ export const ModalBtnSignupEnter = styled.span`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #ffffff;
+  position: static;
+  width: 248px;
+  height: 30px;
 
   @media screen and (max-width: 375px) {
     height: 40px;
@@ -108,9 +110,10 @@ export const ModalBtnSignupEnter = styled.span`
 `;
 
 export const Hover01 = styled(ModalBtnSignupEnter)`
-&:hover {
-  background-color: #33399b;
-}`
+  &:hover {
+    background-color: #33399b;
+  }
+`;
 
 export const ModalBtnSignupEnterA = styled(ModalBtnSignupEnter)`
   width: 100%;
@@ -123,6 +126,8 @@ export const ModalBtnSignupEnterA = styled(ModalBtnSignupEnter)`
 
 export const ModalFormGroup = styled.div`
   text-align: center;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const ModalFormGroupAP = styled(ModalFormGroup)`
@@ -131,9 +136,9 @@ export const ModalFormGroupAP = styled(ModalFormGroup)`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.14px;
+  margin-left: 5px;
 `;
 
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
   text-decoration: underline;
 `;
-

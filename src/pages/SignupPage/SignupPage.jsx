@@ -5,49 +5,52 @@ import * as S from "./SignupPage.styled";
 
 export default function SignupPage() {
   return (
-    <Wrapper>
-      <S.ContainerSignup>
-        <S.Model>
-          <S.ModalBlock>
-            <S.ModelTtl>
-              <h2>Регистрация</h2>
-            </S.ModelTtl>
-            <S.ModalFormLogin id="formLogUp" action="#">
-              <S.ModalInput
-                type="text"
-                name="first-name"
-                id="first-name"
-                placeholder="Имя"
-              />
-              <S.ModalInput
-                type="text"
-                name="login"
-                id="loginReg"
-                placeholder="Эл. почта"
-              />
-              <S.ModalInput
-                type="password"
-                name="password"
-                id="passwordFirst"
-                placeholder="Пароль"
-              />
-              <Link to={appRoutes.SIGNIN}>
-                <S.Hover01 id="SignUpEnter">
-                  Зарегистрироваться
-                </S.Hover01>
-              </Link>
-              <S.ModalFormGroup>
-                <S.ModalFormGroupAP>
-                  Уже есть аккаунт?
+    <>
+      <Wrapper>
+        <S.ContainerSignup>
+          <S.Model>
+            <S.ModalBlock>
+              <S.ModelTtl>
+                <h2>Регистрация</h2>
+              </S.ModelTtl>
+              <S.ModalFormLogin id="formLogUp" action="#">
+                <S.ModalInput
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  placeholder="Имя"
+                />
+                <S.ModalInput
+                  type="text"
+                  name="login"
+                  id="loginReg"
+                  placeholder="Эл. почта"
+                />
+                <S.ModalInput
+                  type="password"
+                  name="password"
+                  id="passwordFirst"
+                  placeholder="Пароль"
+                />
+                <Link to={appRoutes.SIGNIN}>
+                  <S.ModalBtnSignupEnter id="SignUpEnter">
+                    <S.ModalBtnSignupEnterA>
+                      {" "}
+                      Зарегистрироваться
+                    </S.ModalBtnSignupEnterA>
+                  </S.ModalBtnSignupEnter>
+                </Link>
+                <S.ModalFormGroup>
+                  <S.ModalFormGroupAP>Уже есть аккаунт?</S.ModalFormGroupAP>
                   <Link to={appRoutes.SIGNIN}>
-                    Войдите здесь
+                    <S.ModalFormGroupAP>Войдите здесь</S.ModalFormGroupAP>
                   </Link>
-                </S.ModalFormGroupAP>
-              </S.ModalFormGroup>
-            </S.ModalFormLogin>
-          </S.ModalBlock>
-        </S.Model>
-      </S.ContainerSignup>
-    </Wrapper>
+                </S.ModalFormGroup>
+              </S.ModalFormLogin>
+            </S.ModalBlock>
+          </S.Model>
+        </S.ContainerSignup>
+      </Wrapper>
+    </>
   );
 }

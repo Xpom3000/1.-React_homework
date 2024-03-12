@@ -12,7 +12,7 @@ import { GlobalStyle } from "./common/GlobalStyle.styled";
 import "./App.css";
 
 export default function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   const navigate = useNavigate();
 
   function login() {
@@ -29,12 +29,9 @@ export default function App() {
       <GlobalStyle />
       <Routes>
         <Route element={<PrivatRoute user={user} />}>
-          <Route path={MainPage} element={<MainPage />}>
+          <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={appRoutes.TASK} element={<TaskPage />} />
-            <Route
-              path={appRoutes.EXIT}
-              element={<ExitPage logout={logout} />}
-            />
+            <Route path={appRoutes.EXIT} element={<ExitPage logout={logout} />} />
           </Route>
         </Route>
         <Route path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />

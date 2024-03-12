@@ -18,7 +18,7 @@ a:visited {
   cursor: pointer;
 }
 
-button,
+span,
 ._btn {
   cursor: pointer;
 }

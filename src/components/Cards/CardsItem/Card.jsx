@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { topicHeader } from "../../../lib/topic";
-import * as S from "./CardsItem.styled";
+import * as S from "./Card.styled";
 
-export default function CardsItem({ topic, title, date, id }) {
+export default function Cards({ topic, title, date, id }) {
   return (
     <S.StyledCardItem>
       <S.CardsCard>

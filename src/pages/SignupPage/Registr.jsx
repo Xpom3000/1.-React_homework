@@ -1,4 +1,4 @@
-<>
+{ <>
   body&gt;
   <div className="wrapper">
     <div className="container-signup">
@@ -42,4 +42,4 @@
       </div>
     </div>
   </div>
-</>;
+</>; }

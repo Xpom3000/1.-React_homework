@@ -1,4 +1,4 @@
-import CardsItem from "../Cards/CardsItem/CardsItem";
+import CardsItem from "../Cards/CardsItem/Card";
 
 import *as S from "./Column.styled";
 

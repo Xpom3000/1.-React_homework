@@ -24,7 +24,7 @@ export const Model = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 375px) {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 `;
 
@@ -73,6 +73,7 @@ export const ModalInput = styled.input`
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   outline: none;
   padding: 10px 8px;
+  margin-top: 7px;
 
   &::placeholder {
     font-family: "Roboto", sans-serif;
@@ -91,8 +92,6 @@ export const ModalBtnEnter = styled.span`
   border-radius: 4px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: none;
-  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,4 +130,3 @@ export const ModalFormGroupAP = styled(ModalFormGroup)`
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
   text-decoration: underline;
 `;
-

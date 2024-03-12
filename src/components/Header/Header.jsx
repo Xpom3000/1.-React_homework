@@ -24,16 +24,12 @@ export default function Header({ addCard }) {
             </a>
           </div>
           <S.HeaderNav>
-            <button
-              onClick={addCard}
-              className="header__btn-main-new _hover01"
-              id="btnMainNew"
-            >
+            <S.HeaderBtnMaynNew onClick={addCard} id="btnMainNew">
               Создать новую задачу
-            </button>
-            <div onClick={togglePopup} className="header__user _hover02">
+            </S.HeaderBtnMaynNew>
+            <S.HeaderUser onClick={togglePopup} >
               Ivan Ivanov
-            </div>
+            </S.HeaderUser>
             {isOpened && (
               <div
                 className="header__pop-user-set pop-user-set"
@@ -47,9 +43,9 @@ export default function Header({ addCard }) {
                   <input type="checkbox" className="checkbox" name="checkbox" />
                 </div>
                 <Link to={appRoutes.EXIT}>
-                  <span type="button" className="_hover03">
+                  <S.Hover03 type="button" >
                     Выйти
-                  </span>
+                  </S.Hover03>
                 </Link>
               </div>
             )}
