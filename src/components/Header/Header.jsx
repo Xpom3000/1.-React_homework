@@ -1,8 +1,7 @@
 import { useState } from "react";
 import * as S from "./Header.styled.";
 import { Container } from "../../styled/common/Common.styled";
-import { Link } from "react-router-dom";
-import { appRoutes } from "../../lib/appRoutes";
+
 
 export default function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
@@ -24,12 +23,16 @@ export default function Header({ addCard }) {
             </a>
           </div>
           <S.HeaderNav>
-            <S.HeaderBtnMaynNew onClick={addCard} id="btnMainNew">
+            <button
+              onClick={addCard}
+              className="header__btn-main-new _hover01"
+              id="btnMainNew"
+            >
               Создать новую задачу
-            </S.HeaderBtnMaynNew>
-            <S.HeaderUser onClick={togglePopup} >
+            </button>
+            <div onClick={togglePopup} className="header__user _hover02">
               Ivan Ivanov
-            </S.HeaderUser>
+            </div>
             {isOpened && (
               <div
                 className="header__pop-user-set pop-user-set"
@@ -42,11 +45,9 @@ export default function Header({ addCard }) {
                   <p>Темная тема</p>
                   <input type="checkbox" className="checkbox" name="checkbox" />
                 </div>
-                <Link to={appRoutes.EXIT}>
-                  <S.Hover03 type="button" >
-                    Выйти
-                  </S.Hover03>
-                </Link>
+                <button type="button" className="_hover03">
+                  <a href="#popExit">Выйти</a>
+                </button>
               </div>
             )}
           </S.HeaderNav>
