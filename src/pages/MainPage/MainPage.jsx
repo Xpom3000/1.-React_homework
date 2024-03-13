@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { cardList } from "../../data";
 import Header from "../../components/Header/Header";
 import MainContent from "../../components/MainContent/MainContent";
 import Column from "../../components/Column/Column";
@@ -8,6 +7,7 @@ import { WrapperStyled } from "./MainPage.styled";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
+import { getTodos } from "../../Api";
 
 const statusList = [
   "Без статуса",
@@ -17,7 +17,7 @@ const statusList = [
   "Готово",
 ];
 
-export default function MainPage() {
+export default function MainPage({ user }) {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
@@ -28,14 +28,17 @@ export default function MainPage() {
     }
   };
 
-  const [cards, setCards] = useState(cardList);
+  const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    getTodos({ token: user.token }).then((todos) => {
+      setCards(todos.tasks);
       setIsLoading(false);
-    }, 2000);
-  }, []);
+    }).catch((error) => {
+      alert(error)
+    })
+  }, [user]);
 
   function addCard() {
     const newCard = {
@@ -53,8 +56,7 @@ export default function MainPage() {
         {/* pop-up start*/}
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <Outlet />
-
-          {/* pop-up end*/}
+          {/* pop-up end */}
           <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
           {isLoading ? (
             "Загрузка..."
@@ -64,7 +66,7 @@ export default function MainPage() {
                 <Column
                   title={status}
                   key={status}
-                  cardList={cardList.filter((card) => card.status === status)}
+                  cardList={cards.filter((card) => card.status === status)}
                 />
               ))}
             </MainContent>

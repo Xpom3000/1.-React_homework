@@ -10,17 +10,18 @@ import TaskPage from "./pages/TaskPage/TaskPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
 import { GlobalStyle } from "./common/GlobalStyle.styled";
 import "./App.css";
+import NewCardPage from "./pages/NewCardPage/NewCardPage";
 
 export default function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  function login() {
-    setUser(true);
+  function login(newUser) {
+    setUser(newUser);
     navigate(appRoutes.MAIN);
   }
   function logout() {
-    setUser(false);
+    setUser(null);
     navigate(appRoutes.SIGNIN);
   }
 
@@ -29,9 +30,13 @@ export default function App() {
       <GlobalStyle />
       <Routes>
         <Route element={<PrivatRoute user={user} />}>
-          <Route path={appRoutes.MAIN} element={<MainPage />}>
+          <Route path={appRoutes.MAIN} element={<MainPage user={ user} />}>
             <Route path={appRoutes.TASK} element={<TaskPage />} />
-            <Route path={appRoutes.EXIT} element={<ExitPage logout={logout} />} />
+            <Route path={appRoutes.NEW_CARD} element={<NewCardPage />} />
+            <Route
+              path={appRoutes.EXIT}
+              element={<ExitPage logout={logout} />}
+            />
           </Route>
         </Route>
         <Route path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />

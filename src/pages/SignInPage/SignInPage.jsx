@@ -3,23 +3,26 @@ import { Link } from "react-router-dom";
 import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SigninPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
+import { useState } from "react";
+import { signIn } from "../../Api";
 
 export default function SigninPage({ login }) {
-  //   const (loginData, setLoginData) = useState({login:"", password:""})
-  //   const handleInputChange = (e) => {
-  //       const { name, value } = e.target; // Извлекаем имя поля и его значение
+  const [loginData, setLoginData] = useState({ login: "", password: "" });
 
-  //       setFormData({
-  //         ...loginData, // Копируем текущие данные из состояния
-  //         [name]: value, // Обновляем нужное поле
-  //       });
-  //   };
-  //   const handlerLogin = async() => {
-  //       e.preventDefault();
-  //       await signIn(logindata).then((data) => {
-  //           console.loge(data)
-  //       })
-  //   }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target; // Извлекаем имя поля и его значение
+
+    setLoginData({
+      ...loginData, // Копируем текущие данные из состояния
+      [name]: value, // Обновляем нужное поле
+    });
+  };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await signIn(loginData).then((data) => {
+      login(data.user);
+    });
+  };
   return (
     <>
       <Wrapper>
@@ -31,19 +34,23 @@ export default function SigninPage({ login }) {
               </S.ModelTtl>
               <S.ModalFormLogin id="formLogIn" action="#">
                 <S.ModalInput
+                  value={loginData.login}
+                  onChange={handleInputChange}
                   type="text"
                   name="login"
                   id="formlogin"
                   placeholder="Эл. почта"
                 />
                 <S.ModalInput
+                  value={loginData.password}
+                  onChange={handleInputChange}
                   type="password"
                   name="password"
                   id="formpassword"
                   placeholder="Пароль"
                 />
-                <S.ModalBtnEnter id="btnEnter">
-                  <S.ModalBtnEnterA logout={login}>Войти</S.ModalBtnEnterA>
+                <S.ModalBtnEnter id="btnEnter" onClick={handleLogin}>
+                  Войти
                 </S.ModalBtnEnter>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>
