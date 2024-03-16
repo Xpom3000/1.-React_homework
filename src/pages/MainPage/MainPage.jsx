@@ -9,6 +9,7 @@ import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
 
+
 const statusList = [
   "Без статуса",
   "Нужно сделать",
