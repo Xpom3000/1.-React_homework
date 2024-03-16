@@ -10,6 +10,8 @@ import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
 
 
+
+
 const statusList = [
   "Без статуса",
   "Нужно сделать",
@@ -31,7 +33,7 @@ export default function MainPage({ user }) {
 
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  console.log(cards);
   useEffect(() => {
     getTodos({ token: user.token }).then((todos) => {
       setCards(todos.tasks);
@@ -63,11 +65,12 @@ export default function MainPage({ user }) {
             "Загрузка..."
           ) : (
             <MainContent>
-              {statusList.map((status) => (
+                {statusList.map((status) => (
                 <Column
                   title={status}
                   key={status}
-                  cardList={cards.filter((card) => card.status === status)}
+                  
+                  cards={cards.filter((card) => card.status === status)}
                 />
               ))}
             </MainContent>
