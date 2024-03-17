@@ -33,7 +33,6 @@ export default function MainPage({ user }) {
 
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  console.log(cards);
   useEffect(() => {
     getTodos({ token: user.token }).then((todos) => {
       setCards(todos.tasks);
@@ -57,10 +56,14 @@ export default function MainPage({ user }) {
     <>
       <WrapperStyled>
         {/* pop-up start*/}
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <ThemeProvider
+          theme={theme === "light" ? lightTheme : darkTheme}
+        >
           <Outlet />
           {/* pop-up end */}
-          <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
+          <Header addCard={addCard} 
+            toggleTheme={toggleTheme} theme={theme}
+          />
           {isLoading ? (
             "Загрузка..."
           ) : (
@@ -70,7 +73,8 @@ export default function MainPage({ user }) {
                   title={status}
                   key={status}
                   
-                  cards={cards.filter((card) => card.status === status)}
+                    cardList={cards.filter((card) => card.status === status)}
+                    
                 />
               ))}
             </MainContent>

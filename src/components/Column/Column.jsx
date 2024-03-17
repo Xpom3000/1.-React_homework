@@ -8,13 +8,14 @@ export default function Column({ title, cardList }) {
         <p>{title}</p>
       </S.ColumnTitle>
       <S.StyledCard>
-        {cardList.map((task) => (
+        {cardList.map((card) => (
+          console.log(card.id),
           <CardsItem
-            topic={task.topic}
-            title={task.title}
-            date={task.date}
-            key={task._id}
-            id={task._id}
+            topic={card.topic}
+            title={card.title}
+            date={card.date}
+            key={card._id}
+            id={card._id}
           />
         ))}
       </S.StyledCard>

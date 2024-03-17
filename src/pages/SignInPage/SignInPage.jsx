@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SigninPage.styled";
@@ -20,6 +19,7 @@ export default function SigninPage({ login }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     await signIn(loginData).then((data) => {
+      console.log(data)
       login(data.user);
     });
   };

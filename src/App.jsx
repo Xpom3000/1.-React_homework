@@ -11,17 +11,26 @@ import ExitPage from "./pages/ExitPage/ExitPage";
 import { GlobalStyle } from "./common/GlobalStyle.styled";
 import "./App.css";
 import NewCardPage from "./pages/NewCardPage/NewCardPage";
+import {
+  getFromLocalStorage,
+  removeFromLocalStorage,
+  saveToLocalStorage
+} from "./common/Common";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+    // let [user, setUser] = useState(null);
+  let [user, setUser] = useState();
+   user = getFromLocalStorage();
   const navigate = useNavigate();
 
   function login(newUser) {
     setUser(newUser);
+    saveToLocalStorage(newUser);
     navigate(appRoutes.MAIN);
   }
   function logout() {
     setUser(null);
+    removeFromLocalStorage();
     navigate(appRoutes.SIGNIN);
   }
 
