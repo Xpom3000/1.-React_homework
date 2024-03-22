@@ -14,3 +14,4 @@ export function getFromLocalStorage() {
 export function removeFromLocalStorage() {
   window.localStorage.removeItem("user");
 }
+

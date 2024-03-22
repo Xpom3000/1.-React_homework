@@ -85,10 +85,11 @@ export default function SignupPage({ setUser }) {
                   style={{
                     backgroundColor: regBtnLoading ? "#94A6BE" : "#565EEF",
                   }}
-                >
+                ><Link to={appRoutes.MAIN}>
                   <S.ModalBtnSignupEnterA>
                     Зарегистрироваться
-                  </S.ModalBtnSignupEnterA>
+                    </S.ModalBtnSignupEnterA>
+                    </Link>
                 </S.ModalBtnSignupEnter>
                 <p style={{ color: "red" }}>{regFormError}</p>
                 {/* </Link> */}

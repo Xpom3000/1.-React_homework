@@ -16,14 +16,19 @@ export default function SigninPage({ login }) {
       [name]: value, // Обновляем нужное поле
     });
   };
+  const [regBtnLoading, setRegBtnLoading] = useState(false);
+  const [regFormError, setRegFormError] = useState(null);
   const handleLogin = async (e) => {
-    e.preventDefault();
-    await signIn(loginData).then((data) => {
-      login(data.user);
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
+    try {
+      e.preventDefault();
+      await signIn(loginData).then((data) => {
+        login(data.user);
+      })
+    } catch (error) {
+      setRegFormError(error.message);
+    } finally {
+      setRegBtnLoading(false);
+    }
   };
   return (
     <>
@@ -51,9 +56,13 @@ export default function SigninPage({ login }) {
                   id="formpassword"
                   placeholder="Пароль"
                 />
-                <S.ModalBtnEnter id="btnEnter" onClick={handleLogin}>
+                <S.ModalBtnEnter id="btnEnter" onClick={handleLogin}
+                disabled={regBtnLoading}
+                style={{backgroundColor: regBtnLoading ? "#94A6BE" : "#565EEF",
+                }}>
                   Войти
                 </S.ModalBtnEnter>
+                <p style={{ color: "red" }}>{regFormError}</p>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>
                     Нужно зарегистрироваться?
