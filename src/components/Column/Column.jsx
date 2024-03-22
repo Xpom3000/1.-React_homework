@@ -9,7 +9,6 @@ export default function Column({ title, cardList }) {
       </S.ColumnTitle>
       <S.StyledCard>
         {cardList.map((card) => (
-          console.log(card.id),
           <CardsItem
             topic={card.topic}
             title={card.title}

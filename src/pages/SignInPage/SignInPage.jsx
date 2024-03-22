@@ -7,7 +7,7 @@ import { signIn } from "../../Api";
 
 export default function SigninPage({ login }) {
   const [loginData, setLoginData] = useState({ login: "", password: "" });
-
+  // const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
 
@@ -19,8 +19,10 @@ export default function SigninPage({ login }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     await signIn(loginData).then((data) => {
-      console.log(data)
       login(data.user);
+    })
+    .catch((error) => {
+      console.warn(error);
     });
   };
   return (
@@ -39,7 +41,7 @@ export default function SigninPage({ login }) {
                   type="text"
                   name="login"
                   id="formlogin"
-                  placeholder="Эл. почта"
+                  placeholder="Логин"
                 />
                 <S.ModalInput
                   value={loginData.password}
