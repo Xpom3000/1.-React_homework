@@ -1,5 +1,5 @@
 const basaHost = "https://wedev-api.sky.pro/api/kanban";
-const userHost = "https://wedev-api.sky.pro/api/user";
+const userHost = "https://wedev-api.sky.pro/api/user"; 
 
 // export const setToken = (user) => {
 //   const token = user ? `Bearer ${user.token}` : undefined;
