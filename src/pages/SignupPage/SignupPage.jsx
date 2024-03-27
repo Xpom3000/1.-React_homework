@@ -77,7 +77,6 @@ export default function SignupPage({ setUser }) {
                   id="passwordFirst"
                   placeholder="Пароль"
                 />
-                {/* <Link to={appRoutes.SIGNIN}> */}
                 <S.ModalBtnSignupEnter
                   id="SignUpEnter"
                   onClick={handleLogup}
@@ -92,7 +91,6 @@ export default function SignupPage({ setUser }) {
                     </Link>
                 </S.ModalBtnSignupEnter>
                 <p style={{ color: "red" }}>{regFormError}</p>
-                {/* </Link> */}
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>Уже есть аккаунт?</S.ModalFormGroupAP>
                   <Link to={appRoutes.SIGNIN}>

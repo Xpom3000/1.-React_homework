@@ -1,5 +1,8 @@
+
 export default function NotFound() {
-    return (
-        <div>Страница не найдена</div>
-    );
+  return (
+  
+      <img src="public/images/404.png" />
+   
+  );
 }
