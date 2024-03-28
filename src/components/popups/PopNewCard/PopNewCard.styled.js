@@ -45,4 +45,43 @@ export const PopNewCardContent = styled.div`
   text-align: left;
 `;
 
+export const PopNewCardTtl = styled.h3`
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 20px;
+`;
 
+export const PopNewNardClose = styled.a`
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #94a6be;
+  cursor: pointer;
+
+  &:hover {
+    color: #000000;
+  }
+`;
+
+export const PopNewCardWrap = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
+export const PopNewCardForm = styled.form`
+  max-width: 370px;
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+`;
+
+export const FormNewBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+// export const ProdChecbox = styled.div`
+// `
