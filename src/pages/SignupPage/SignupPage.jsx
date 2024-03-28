@@ -31,7 +31,8 @@ export default function SignupPage() {
       e.preventDefault();
       setRegBtnLoading(true);
       await signUp(registerData).then((data) => {
-        login(data.newUser);
+        login(data.user);
+        console.log(data)
         navigate(appRoutes.MAIN);
       });
     } catch (error) {
