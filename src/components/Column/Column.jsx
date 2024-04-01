@@ -1,6 +1,5 @@
-import CardsItem from "../Cards/CardsItem/CardsItem";
-
-import *as S from "./Column.styled";
+import CardsItem from "../Cards/CardsItem/Card";
+import * as S from "./Column.styled";
 
 export default function Column({ title, cardList }) {
   return (
@@ -11,10 +10,11 @@ export default function Column({ title, cardList }) {
       <S.StyledCard>
         {cardList.map((card) => (
           <CardsItem
-            topic={card.theme}
+            topic={card.topic}
             title={card.title}
             date={card.date}
-            key={card.id}
+            key={card._id}
+            id={card._id}
           />
         ))}
       </S.StyledCard>

@@ -1,11 +1,41 @@
-// const token = "bgc0b8awbwas6g5g5k5o5s5w606g37w3cc3bo3b83k39s3co3c83c03ck";
+const basaHost = "https://wedev-api.sky.pro/api/kanban";
+const userHost = "https://wedev-api.sky.pro/api/user"; 
 
-// const baseHost = "https://wedev-api.sky.pro/api/kanban";
-
-const userHost = "https://wedev-api.sky.pro/api/user";
+// export const setToken = (user) => {
+//   const token = user ? `Bearer ${user.token}` : undefined;
+//   return token;
+// };
 
 //Получить список задач.
-// export async function getTodos({ token }) {}
+export async function getTodos({token}) {
+  const response = await fetch(basaHost, {
+    metod: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!response.status === 200) {
+    throw new Error("Ошибка");
+  }
+  const data = await response.json();
+  return data;
+}
+
+//Добавить задачу в список.
+export async function postTodo({token, text}) {
+  const response = await fetch(basaHost, {
+    headers: {
+      Authorisation:  `Bearer ${token}`,
+    },
+    method: "POST",
+    body: JSON.stringify({text})
+  });
+  if (!response.status === 200) {
+    throw new Error("Ошибка");
+  }
+  const data = await response.json();
+  return data;
+}
 
 //РЕГИСТРАЦИЯ
 export function signUp({ login, name, password }) {

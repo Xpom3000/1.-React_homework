@@ -1,66 +1,50 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import Column from "./components/Column/Column";
-import Header from "./components/Header/Header";
-import MainContent from "./components/MainContent/MainContent";
-import PopBrowse from "./components/popups/PopBrowse/PopBrowse";
-import PopExit from "./components/popups/PopExit/PopExit";
-import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
-import { cardList } from "./data";
 
-const statusList = [
-  "Без статуса",
-  "Нужно сделать",
-  "В работе",
-  "Тестирование",
-  "Готово",
-];
+import NewCardPage from "./pages/NewCardPage/NewCardPage";
+import {
+  getFromLocalStorage,
+  removeFromLocalStorage,
+  saveToLocalStorage
+} from "./common/Common";
+import { Route, Routes, useNavigate } from "react-router";
+import { appRoutes } from "./lib/appRoutes";
 
-function App() {
-  const [cards, setCards] = useState(cardList);
-  const [isLoading, setIsLoading] = useState(true);
+export default function App() {
+  // let [user, setUser] = useState(null);
+  let [user, setUser] = useState();
+  user = getFromLocalStorage();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
-
-  function addCard() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
+  function login(newUser) {
+    setUser(newUser);
+    saveToLocalStorage(newUser);
+    navigate(appRoutes.MAIN);
   }
+  function logout() {
+    setUser(null);
+    removeFromLocalStorage();
+    navigate(appRoutes.SIGNIN);
+  }
+
   return (
     <>
-      <div className="wrapper">
-        {/* pop-up start*/}
-        <PopExit />
-        <PopNewCard />
-        <PopBrowse />
-        {/* pop-up end*/}
-        <Header addCard={addCard} />
-        {isLoading ? (
-          "Загрузка..."
-        ) : (
-          <MainContent>
-            {statusList.map((status) => (
-              <Column
-                title={status}
-                key={status}
-                cardList={cardList.filter((card) => card.status === status)}
-              />
-            ))}
-          </MainContent>
-        )}
-      </div>
+      <GlobalStyle />
+      <Routes>
+        <Route element={<PrivatRoute user={user} />}>
+          <Route path={appRoutes.MAIN} element={<MainPage user={user} />}>
+            <Route path={appRoutes.TASK} element={<TaskPage />} />
+            <Route path={appRoutes.NEW_CARD} element={<NewCardPage />} />
+            <Route
+              path={appRoutes.EXIT}
+              element={<ExitPage logout={logout} />}
+            />
+          </Route>
+        </Route>
+        <Route path={appRoutes.SIGNIN} element={<SigninPage login={login} />} />
+        <Route path={appRoutes.SIGNUP} element={<SignupPage />} />
+        <Route path={appRoutes.NOT_FOUND} element={<NotFound />} />
+      </Routes>
     </>
-  );
+  )
 }
-
-export default App;
