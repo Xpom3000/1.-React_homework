@@ -8,8 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
-
-
+import { useUser } from "../../hooks/useUser";
 
 
 const statusList = [
@@ -22,7 +21,7 @@ const statusList = [
 
 export default function MainPage({ user }) {
   const [theme, setTheme] = useState("light");
-
+  const { user } = useUser();
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -32,14 +31,17 @@ export default function MainPage({ user }) {
   };
 
   const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    getTodos({ token: user.token }).then((todos) => {
-      setCards(todos.tasks);
-      setIsLoading(false);
-    }).catch((error) => {
-      alert(error)
-    })
+    getTodos({ token: user.token })
+      .then((todos) => {
+        setCards(todos.tasks);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }, [user]);
 
   function addCard() {
@@ -61,9 +63,7 @@ export default function MainPage({ user }) {
         >
           <Outlet />
           {/* pop-up end */}
-          <Header addCard={addCard} 
-            toggleTheme={toggleTheme} theme={theme}
-          />
+          <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
           {isLoading ? (
             "Загрузка..."
           ) : (
@@ -72,9 +72,7 @@ export default function MainPage({ user }) {
                 <Column
                   title={status}
                   key={status}
-                  
-                    cardList={cards.filter((card) => card.status === status)}
-                    
+                  cardList={cards.filter((card) => card.status === status)}
                 />
               ))}
             </MainContent>

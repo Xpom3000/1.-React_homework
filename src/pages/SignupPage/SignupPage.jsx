@@ -4,10 +4,14 @@ import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SignupPage.styled";
 import { useState } from "react";
 import { signUp } from "../../Api";
+import { useUser } from "../../hooks/useUser";
 
-export default function SignupPage({ setUser }) {
+export default function SignupPage() {
+  const { login } = useUser();
   const navigate = useNavigate();
-  const [logupData, setLogupData] = useState({
+  const [regBtnLoading, setRegBtnLoading] = useState(false);
+  const [regFormError, setRegFormError] = useState(null);
+  const [registerData, setRegisterData] = useState({
     login: "",
     name: "",
     password: "",
@@ -16,26 +20,21 @@ export default function SignupPage({ setUser }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
 
-    setLogupData({
-      ...logupData, // Копируем текущие данные из состояния
+    setRegisterData({
+      ...registerData, // Копируем текущие данные из состояния
       [name]: value, // Обновляем нужное поле
     });
   };
 
-  const [regBtnLoading, setRegBtnLoading] = useState(false);
-  const [regFormError, setRegFormError] = useState(null);
   const handleLogup = async (e) => {
     try {
       e.preventDefault();
       setRegBtnLoading(true);
-      const regUser = await signUp({
-        login: logupData.login,
-        name: logupData.name,
-        password: logupData.password,
+      await signUp(registerData).then((data) => {
+        login(data.user);
+        console.log(data)
+        navigate(appRoutes.MAIN);
       });
-      setUser(regUser.user);
-      alert("Пользователь успешно создан");
-      navigate(appRoutes.HOME);
     } catch (error) {
       setRegFormError(error.message);
     } finally {
@@ -54,7 +53,7 @@ export default function SignupPage({ setUser }) {
               </S.ModelTtl>
               <S.ModalFormLogin id="formLogUp" action="#">
                 <S.ModalInput
-                  value={logupData.name}
+                  value={registerData.name}
                   onChange={handleInputChange}
                   type="text"
                   name="name"
@@ -62,7 +61,7 @@ export default function SignupPage({ setUser }) {
                   placeholder="Имя"
                 />
                 <S.ModalInput
-                  value={logupData.login}
+                  value={registerData.login}
                   onChange={handleInputChange}
                   type="text"
                   name="login"
@@ -70,14 +69,13 @@ export default function SignupPage({ setUser }) {
                   placeholder="Логин"
                 />
                 <S.ModalInput
-                  value={logupData.password}
+                  value={registerData.password}
                   onChange={handleInputChange}
                   type="password"
                   name="password"
                   id="passwordFirst"
                   placeholder="Пароль"
                 />
-                {/* <Link to={appRoutes.SIGNIN}> */}
                 <S.ModalBtnSignupEnter
                   id="SignUpEnter"
                   onClick={handleLogup}
@@ -85,14 +83,14 @@ export default function SignupPage({ setUser }) {
                   style={{
                     backgroundColor: regBtnLoading ? "#94A6BE" : "#565EEF",
                   }}
-                ><Link to={appRoutes.MAIN}>
-                  <S.ModalBtnSignupEnterA>
-                    Зарегистрироваться
+                >
+                  <Link to={appRoutes.MAIN}>
+                    <S.ModalBtnSignupEnterA>
+                      Зарегистрироваться
                     </S.ModalBtnSignupEnterA>
-                    </Link>
+                  </Link>
                 </S.ModalBtnSignupEnter>
                 <p style={{ color: "red" }}>{regFormError}</p>
-                {/* </Link> */}
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>Уже есть аккаунт?</S.ModalFormGroupAP>
                   <Link to={appRoutes.SIGNIN}>

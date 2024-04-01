@@ -3,7 +3,7 @@ import * as S from "./Header.styled.";
 import { Container } from "../../styled/common/Common.styled";
 
 
-export default function Header({ addCard }) {
+export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
     setIsOpened((prev) => !prev);
@@ -23,16 +23,12 @@ export default function Header({ addCard }) {
             </a>
           </div>
           <S.HeaderNav>
-            <button
-              onClick={addCard}
-              className="header__btn-main-new _hover01"
-              id="btnMainNew"
-            >
-              Создать новую задачу
-            </button>
-            <div onClick={togglePopup} className="header__user _hover02">
-              Ivan Ivanov
-            </div>
+            <S.HeaderBtnMaynNew id="btnMainNew">
+              <Link to={appRoutes.NEWTASK}>
+                Создать новую задачу
+              </Link>
+            </S.HeaderBtnMaynNew>
+            <S.HeaderUser onClick={togglePopup}>Ivan Ivanov</S.HeaderUser>
             {isOpened && (
               <div
                 className="header__pop-user-set pop-user-set"
@@ -45,9 +41,9 @@ export default function Header({ addCard }) {
                   <p>Темная тема</p>
                   <input type="checkbox" className="checkbox" name="checkbox" />
                 </div>
-                <button type="button" className="_hover03">
-                  <a href="#popExit">Выйти</a>
-                </button>
+                <Link to={appRoutes.EXIT}>
+                  <S.Hover03 type="button">Выйти</S.Hover03>
+                </Link>
               </div>
             )}
           </S.HeaderNav>

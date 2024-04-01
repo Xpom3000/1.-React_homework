@@ -1,13 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SigninPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { signIn } from "../../Api";
+import { useUser } from "../../hooks/useUser";
 
-export default function SigninPage({ login }) {
+export default function SigninPage() {
+  const { login } = useUser();
+  const navigate = useNavigate();
+  const [regBtnLoading, setRegBtnLoading] = useState(false);
+  const [regFormError, setRegFormError] = useState(null);
   const [loginData, setLoginData] = useState({ login: "", password: "" });
-  // const navigate = useNavigate();
+
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
 
@@ -16,13 +21,13 @@ export default function SigninPage({ login }) {
       [name]: value, // Обновляем нужное поле
     });
   };
-  const [regBtnLoading, setRegBtnLoading] = useState(false);
-  const [regFormError, setRegFormError] = useState(null);
+  
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
       await signIn(loginData).then((data) => {
         login(data.user);
+        navigate(appRoutes.MAIN);
       })
     } catch (error) {
       setRegFormError(error.message);
@@ -62,6 +67,7 @@ export default function SigninPage({ login }) {
                 }}>
                   Войти
                 </S.ModalBtnEnter>
+                <p style={{ color: "red" }}>{regFormError}</p>
                 <p style={{ color: "red" }}>{regFormError}</p>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>

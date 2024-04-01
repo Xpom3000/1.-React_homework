@@ -1,5 +1,5 @@
 const basaHost = "https://wedev-api.sky.pro/api/kanban";
-const userHost = "https://wedev-api.sky.pro/api/user"; 
+const userHost = "https://wedev-api.sky.pro/api/user";
 
 // export const setToken = (user) => {
 //   const token = user ? `Bearer ${user.token}` : undefined;
@@ -7,9 +7,9 @@ const userHost = "https://wedev-api.sky.pro/api/user";
 // };
 
 //Получить список задач.
-export async function getTodos({token}) {
+export async function getTodos({ token }) {
   const response = await fetch(basaHost, {
-    metod: 'GET',
+    metod: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -22,16 +22,16 @@ export async function getTodos({token}) {
 }
 
 //Добавить задачу в список.
-export async function postTodo({token, text}) {
+export async function postTodo({ token, text }) {
   const response = await fetch(basaHost, {
     headers: {
-      Authorisation:  `Bearer ${token}`,
+      Authorisation: `Bearer ${token}`,
     },
     method: "POST",
-    body: JSON.stringify({text})
+    body: JSON.stringify({ text }),
   });
   if (!response.status === 200) {
-    throw new Error("Ошибка");
+    throw new Error("Ошибка, не удалось добавить задачу, попробуйте позже");
   }
   const data = await response.json();
   return data;
