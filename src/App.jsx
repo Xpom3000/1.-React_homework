@@ -1,14 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { appRoutes } from "./lib/appRoutes";
-import SigninPage from "./pages/SignInPage/SignInPage";
-import SignupPage from "./pages/SignupPage/SignupPage";
-import NotFound from "./pages/NotFoundPage/NotFoundPage";
-import { useState } from "react";
-import PrivatRoute from "./components/PrivatRoute/PrivatRoute";
-import MainPage from "./pages/MainPage/MainPage";
-import TaskPage from "./pages/TaskPage/TaskPage";
-import ExitPage from "./pages/ExitPage/ExitPage";
-import { GlobalStyle } from "./common/GlobalStyle.styled";
+import { useEffect, useState } from "react";
 import "./App.css";
 import NewCardPage from "./pages/NewCardPage/NewCardPage";
 import {
@@ -33,7 +23,6 @@ export default function App() {
     removeFromLocalStorage();
     navigate(appRoutes.SIGNIN);
   }
-
   return (
     <>
       <GlobalStyle />
@@ -55,3 +44,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;
