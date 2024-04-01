@@ -19,7 +19,7 @@ const statusList = [
   "Готово",
 ];
 
-export default function MainPage() {
+export default function MainPage({ user }) {
   const [theme, setTheme] = useState("light");
   const { user } = useUser();
   const toggleTheme = () => {
@@ -30,6 +30,7 @@ export default function MainPage() {
     }
   };
 
+  const [cards, setCards] = useState([]);
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -57,7 +58,9 @@ export default function MainPage() {
     <>
       <WrapperStyled>
         {/* pop-up start*/}
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <ThemeProvider
+          theme={theme === "light" ? lightTheme : darkTheme}
+        >
           <Outlet />
           {/* pop-up end */}
           <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
@@ -65,7 +68,7 @@ export default function MainPage() {
             "Загрузка..."
           ) : (
             <MainContent>
-              {statusList.map((status) => (
+                {statusList.map((status) => (
                 <Column
                   title={status}
                   key={status}

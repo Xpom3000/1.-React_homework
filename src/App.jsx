@@ -29,6 +29,6 @@ export default function App() {
         <Route path={appRoutes.NOT_FOUND} element={<NotFound />} />
       </Routes>
     </>
-  );
+  )
 }
 

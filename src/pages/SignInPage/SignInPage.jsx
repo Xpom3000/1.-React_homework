@@ -48,12 +48,16 @@ export default function SigninPage() {
                 <S.ModalInput
                   value={loginData.login}
                   onChange={handleInputChange}
+                  value={loginData.login}
+                  onChange={handleInputChange}
                   type="text"
                   name="login"
                   id="formlogin"
                   placeholder="Логин"
                 />
                 <S.ModalInput
+                  value={loginData.password}
+                  onChange={handleInputChange}
                   value={loginData.password}
                   onChange={handleInputChange}
                   type="password"
@@ -67,6 +71,7 @@ export default function SigninPage() {
                 }}>
                   Войти
                 </S.ModalBtnEnter>
+                <p style={{ color: "red" }}>{regFormError}</p>
                 <p style={{ color: "red" }}>{regFormError}</p>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>
