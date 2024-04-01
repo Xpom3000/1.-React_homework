@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
+
 import NewCardPage from "./pages/NewCardPage/NewCardPage";
 import {
   getFromLocalStorage,
   removeFromLocalStorage,
   saveToLocalStorage
 } from "./common/Common";
+import { Route, Routes, useNavigate } from "react-router";
+import { appRoutes } from "./lib/appRoutes";
 
 export default function App() {
-    // let [user, setUser] = useState(null);
+  // let [user, setUser] = useState(null);
   let [user, setUser] = useState();
-   user = getFromLocalStorage();
+  user = getFromLocalStorage();
   const navigate = useNavigate();
 
   function login(newUser) {
@@ -23,12 +26,13 @@ export default function App() {
     removeFromLocalStorage();
     navigate(appRoutes.SIGNIN);
   }
+
   return (
     <>
       <GlobalStyle />
       <Routes>
         <Route element={<PrivatRoute user={user} />}>
-          <Route path={appRoutes.MAIN} element={<MainPage user={ user} />}>
+          <Route path={appRoutes.MAIN} element={<MainPage user={user} />}>
             <Route path={appRoutes.TASK} element={<TaskPage />} />
             <Route path={appRoutes.NEW_CARD} element={<NewCardPage />} />
             <Route
@@ -42,7 +46,5 @@ export default function App() {
         <Route path={appRoutes.NOT_FOUND} element={<NotFound />} />
       </Routes>
     </>
-  );
+  )
 }
-
-export default App;
