@@ -969,7 +969,7 @@ background: rgba(0, 0, 0, 0.4);
   .pop-new-card__wrap {
     display: block;
   }
-  .calendar {
+  /* .calendar {
     max-width: 340px;
     width: 100%;
   }
@@ -999,7 +999,7 @@ background: rgba(0, 0, 0, 0.4);
     width: 42px;
     height: 42px;
     font-size: 14px;
-  }
+  } */
   .pop-browse {
     top: 70px;
   }
