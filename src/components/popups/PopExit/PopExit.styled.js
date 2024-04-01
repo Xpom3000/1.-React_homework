@@ -39,9 +39,7 @@ export const PopExitBlock = styled.div`
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
 
   @media only screen and (max-width: 375px) {
-    .pop-exit__block {
-      padding: 50px 20px;
-    }
+    padding: 50px 20px;
   }
 `;
 
@@ -54,6 +52,9 @@ export const PopExitTtlH2 = styled.div`
   margin-bottom: 20px;
 `;
 
+// export const PopExitForm = styled.form`
+// `
+
 export const PopExitFormGroup = styled.div`
   width: 100%;
   display: flex;
@@ -61,9 +62,7 @@ export const PopExitFormGroup = styled.div`
   justify-content: space-between;
 
   @media only screen and (max-width: 375px) {
-    .pop-exit__form-group {
-      display: block;
-    }
+    display: block;
   }
 `;
 
@@ -89,12 +88,10 @@ export const PopExitExitYes = styled.span`
   }
 
   @media only screen and (max-width: 375px) {
-    .pop-exit__exit-yes {
-      width: 100%;
-      height: 40px;
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
+    width: 100%;
+    height: 40px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 `;
 
@@ -121,7 +118,7 @@ export const PopExitExitNo = styled.span`
   line-height: 21px;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #565EEF;;
+  color: #565eef;
 
   &:hover {
     background-color: #33399b;
@@ -129,10 +126,8 @@ export const PopExitExitNo = styled.span`
   }
 
   @media only screen and (max-width: 375px) {
-    .pop-exit__exit-no {
-      width: 100%;
-      height: 40px;
-    }
+    width: 100%;
+    height: 40px;
   }
 `;
 
@@ -148,3 +143,4 @@ export const PopExitExitNoA = styled.a`
     color: #ffffff;
   }
 `;
+

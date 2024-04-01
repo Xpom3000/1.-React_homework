@@ -7,19 +7,20 @@ import PrivatRoute from "./components/PrivatRoute/PrivatRoute";
 import MainPage from "./pages/MainPage/MainPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
-import { GlobalStyle } from "./common/GlobalStyle.styled";
 import "./App.css";
+import PopNewTask from "./components/popups/PopNewCard/PopNewCard";
+
 // import NewCardPage from "./pages/NewCardPage/NewCardPage";
 
 export default function App() {
   return (
     <>
-      <GlobalStyle />
+    
       <Routes>
         <Route element={<PrivatRoute />}>
           <Route path={appRoutes.MAIN} element={<MainPage  />}>
             <Route path={appRoutes.TASK} element={<TaskPage />} />
-            {/* <Route path={appRoutes.NEW_CARD} element={<NewCardPage />} /> */}
+            <Route path={appRoutes.NEWTASK} element={<PopNewTask />} />
             <Route path={appRoutes.EXIT} element={<ExitPage/>} />
           </Route>
         </Route>

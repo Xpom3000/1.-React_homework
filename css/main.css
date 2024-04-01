@@ -347,7 +347,7 @@ background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
 } */
-.form-new__input,
+/* .form-new__input,
 .form-new__area {
   width: 100%;
   outline: none;
@@ -358,7 +358,7 @@ background: rgba(0, 0, 0, 0.4);
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
-}
+} */
 .form-new__input::-moz-placeholder,
 .form-new__area::-moz-placeholder {
   font-weight: 400;
@@ -367,22 +367,22 @@ background: rgba(0, 0, 0, 0.4);
   color: #94a6be;
   letter-spacing: -0.14px;
 }
-.form-new__input::placeholder,
+/* .form-new__input::placeholder,
 .form-new__area::placeholder {
   font-weight: 400;
   font-size: 14px;
   line-height: 1px;
   color: #94a6be;
   letter-spacing: -0.14px;
-}
-.form-new__input {
+} */
+/* .form-new__input {
   margin: 20px 0;
-}
-.form-new__area {
+} */
+/* .form-new__area {
   max-width: 370px;
   margin-top: 14px;
   height: 200px;
-}
+} */
 .form-new__create {
   width: 132px;
   height: 30px;
@@ -1106,4 +1106,32 @@ background: rgba(0, 0, 0, 0.4);
   .pop-exit__form-group {
     display: block;
   }
+}
+
+/* Стилизация Радио-кнопки*/
+.prod_checbox strong {font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;}
+
+.radio-toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar label {
+  display: inline-block;
+  padding: 2px 9px;
+  cursor: pointer;
+  border: 1px solid #DAD0FF;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+  background-color: #d0ffb7;
+  border: 1px solid #1CA92E;
+}
+
+.radio-toolbar label:hover {
+  background-color: #d0ffb7;
+  border: 1px solid #1CA92E;
 }

@@ -1,17 +1,42 @@
 import * as S from "./PopNewCard.styled";
 import Calendar from "../../Calendar/Calendar";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { appRoutes } from "../../../lib/appRoutes";
+import { useUser } from "../../../hooks/useUser";
+import { postTodo } from "../../../Api";
 
-export default function PopNewCard() {
+import { Link } from "react-router-dom";
+import { useTasks } from "../../../hooks/useTasks";
+
+export default function PopNewTask() {
+  const { user } = useUser();
+  const { setCards } = useTasks();
+  const [selectedDate, setSelectedDate] = useState(null); //Состояне для сохранениЯ даты
   const [newTask, setNewTask] = useState({
     title: " ",
     description: " ",
     topic: " ",
   });
-  const handelFormSubmit = (e) => {
+  const handelFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(newTask);
+    const taskData = {
+      ...newTask,
+      date: selectedDate,
+    }
+    console.log(taskData);
+
+    postTodo({ taskData, token: user.token })
+      .then((data) => {
+        console.log(data);
+        setCards(data.tasks);
+        Navigate(appRoutes.MAIN);
+      })
+      .catch((error) => {
+        // console.log(error);
+        alert(error);
+        // setError(error.message)
+      });
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
@@ -28,8 +53,7 @@ export default function PopNewCard() {
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
-            <Link to={"*"}>
-              {" "}
+            <Link to={appRoutes.MAIN}>
               <S.PopNewNardClose>&#10006;</S.PopNewNardClose>
             </Link>
             <S.PopNewCardWrap>
@@ -43,8 +67,7 @@ export default function PopNewCard() {
                     {" "}
                     Название задачи
                   </label>
-                  <input
-                    className="form-new__input"
+                  <S.FormNewInput
                     type="text"
                     name="title"
                     value={newTask.title}
@@ -58,8 +81,7 @@ export default function PopNewCard() {
                   <label htmlFor="textArea" className="subttl">
                     Описание задачи
                   </label>
-                  <textarea
-                    className="form-new__area"
+                  <S.FormNewArea
                     name="description"
                     value={newTask.description}
                     onChange={handleInputChange}
@@ -69,9 +91,12 @@ export default function PopNewCard() {
                   />
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar />
+              <Calendar
+                selectedDate={selectedDate}
+                setSelectedDate={setSelectedDate}
+              />
             </S.PopNewCardWrap>
-            <div className="prod_checbox">
+            <S.ProdChecbox>
               <div className="radio-toolbar">
                 <input
                   type="radio"
@@ -100,7 +125,7 @@ export default function PopNewCard() {
                 />
                 <label htmlFor="radio3">Copywriting</label>
               </div>
-            </div>
+            </S.ProdChecbox>
             {/* <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>
               <div className="categories__themes">
@@ -115,13 +140,9 @@ export default function PopNewCard() {
                 </div>
               </div>
             </div> */}
-            <button
-              className="form-new__create _hover01"
-              onClick={handelFormSubmit()}
-              id="btnCreate"
-            >
+            <S.FormNewCreate onClick={handelFormSubmit} id="btnCreate">
               Создать задачу
-            </button>
+            </S.FormNewCreate>
           </S.PopNewCardContent>
         </S.PopNewCardBlock>
       </S.PopNewCardContainer>

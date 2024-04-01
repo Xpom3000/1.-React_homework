@@ -57,7 +57,7 @@ export const PopNewNardClose = styled.a`
   position: absolute;
   top: 20px;
   right: 30px;
-  color: #94a6be;
+  color: FFFFFF;
   cursor: pointer;
 
   &:hover {
@@ -85,3 +85,75 @@ export const FormNewBlock = styled.div`
 
 // export const ProdChecbox = styled.div`
 // `
+
+export const FormNewInput = styled.input`
+  width: 100%;
+  outline: none;
+  padding: 14px;
+  background: transparent;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+  margin: 20px 0;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
+  }
+`;
+
+export const FormNewArea = styled.textarea`
+  width: 100%;
+  outline: none;
+  padding: 14px;
+  background: transparent;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border-radius: 8px;
+  font-size: 14px;
+  max-width: 370px;
+  margin-top: 14px;
+  height: 200px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
+  }
+`;
+
+export const ProdChecbox = styled.div`
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+`;
+
+
+export const FormNewCreate = styled.span`
+  width: 132px;
+  height: 30px;
+  background-color: #565eef;
+  border-radius: 4px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  float: right;
+
+  &:hover {
+    background-color: #33399b;
+  }
+`;
+

@@ -31,7 +31,7 @@ export async function postTodo({ token, text }) {
     body: JSON.stringify({ text }),
   });
   if (!response.status === 200) {
-    throw new Error("Ошибка");
+    throw new Error("Ошибка, не удалось добавить задачу, попробуйте позже");
   }
   const data = await response.json();
   return data;
