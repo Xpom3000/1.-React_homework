@@ -48,16 +48,12 @@ export default function SigninPage() {
                 <S.ModalInput
                   value={loginData.login}
                   onChange={handleInputChange}
-                  value={loginData.login}
-                  onChange={handleInputChange}
                   type="text"
                   name="login"
                   id="formlogin"
                   placeholder="Логин"
                 />
                 <S.ModalInput
-                  value={loginData.password}
-                  onChange={handleInputChange}
                   value={loginData.password}
                   onChange={handleInputChange}
                   type="password"
