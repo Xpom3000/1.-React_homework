@@ -6,11 +6,11 @@ import { appRoutes } from "../../../lib/appRoutes";
 import { useUser } from "../../../hooks/useUser";
 import { postTodo } from "../../../Api";
 import { Link } from "react-router-dom";
-import { useTasks } from "../../../hooks/useTasks";
+// import { useTasks } from "../../../hooks/useTasks";
 
 export default function PopNewTask() {
-  const { user } = useUser();
-  const { setCards } = useTasks();
+  const { user, setUser } = useUser();
+  // const { setCards } = useTasks();
   const [selectedDate, setSelectedDate] = useState(null); //Состояне для сохранениЯ даты
   const [newTask, setNewTask] = useState({
     title: " ",
@@ -22,13 +22,13 @@ export default function PopNewTask() {
     const taskData = {
       ...newTask,
       date: selectedDate,
-    }
+    };
     console.log(taskData);
 
     postTodo({ taskData, token: user.token })
       .then((data) => {
         console.log(data);
-        setCards(data.tasks);
+        setUser(data.tasks);
         Navigate(appRoutes.MAIN);
       })
       .catch((error) => {
@@ -86,7 +86,7 @@ export default function PopNewTask() {
                     onChange={handleInputChange}
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    defaultValue={""}
+                    // defaultValue={""}
                   />
                 </S.FormNewBlock>
               </S.PopNewCardForm>

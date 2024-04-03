@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PopNewCard = styled.div`
-  display: none;
+  display: block;
   width: 100%;
   min-width: 375px;
   height: 100%;

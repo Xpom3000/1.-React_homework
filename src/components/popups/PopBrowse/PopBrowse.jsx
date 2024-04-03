@@ -56,7 +56,7 @@ export default function PopBrowse() {
                   />
                 </div>
               </form>
-              <Calendar/>
+              <Calendar />
               {/* <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
                 <div className="calendar__block">
@@ -188,21 +188,15 @@ export default function PopBrowse() {
                   <S.BtnBg>Сохранить</S.BtnBg>
                 </Link>
                 <Link to="#">
-                <S.BtnBor>
-                  Отменить
-                  </S.BtnBor>
+                  <S.BtnBor>Отменить</S.BtnBor>
                 </Link>
                 <Link to="#">
-                <S.BtnBor id="btnDelete">
-                  Удалить задачу
-                  </S.BtnBor>
-                  </Link>
+                  <S.BtnBor id="btnDelete">Удалить задачу</S.BtnBor>
+                </Link>
               </S.BtnGroup>
               <Link to="#">
-              <S.BtnBg>
-                Закрыть
-                </S.BtnBg>
-                </Link>
+                <S.BtnBg>Закрыть</S.BtnBg>
+              </Link>
             </S.PopBrowseBtnEdit>
           </S.PopBrouwseContent>
         </S.PopBrouwseBlock>
