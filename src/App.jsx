@@ -10,8 +10,6 @@ import ExitPage from "./pages/ExitPage/ExitPage";
 import "./App.css";
 import PopNewTask from "./components/popups/PopNewCard/PopNewCard";
 
-// import NewCardPage from "./pages/NewCardPage/NewCardPage";
-
 export default function App() {
   return (
     <>
