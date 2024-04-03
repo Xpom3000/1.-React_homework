@@ -25,7 +25,7 @@ export async function getTodos({ token }) {
 export async function postTodo({ token, text }) {
   const response = await fetch(basaHost, {
     headers: {
-      Authorisation: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     method: "POST",
     body: JSON.stringify({ text }),

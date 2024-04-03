@@ -9,6 +9,7 @@ import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
 import { useUser } from "../../hooks/useUser";
+import { setDate } from "date-fns";
 
 
 const statusList = [
@@ -48,7 +49,7 @@ export default function MainPage() {
       id: cards.length + 1,
       theme: "Web Design",
       title: "Название задачи",
-      date: "30.10.23",
+      date: setDate,
       status: "Без статуса",
     };
     setCards([...cards, newCard]);

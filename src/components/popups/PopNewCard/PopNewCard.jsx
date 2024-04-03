@@ -1,7 +1,7 @@
 import * as S from "./PopNewCard.styled";
 import Calendar from "../../Calendar/Calendar";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
 import { useUser } from "../../../hooks/useUser";
 import { postTodo } from "../../../Api";
@@ -9,9 +9,12 @@ import { Link } from "react-router-dom";
 // import { useTasks } from "../../../hooks/useTasks";
 
 export default function PopNewTask() {
-  const { user, setUser } = useUser();
-  // const { setCards } = useTasks();
+  const { user } = useUser();
+
+  const navigate = useNavigate();
+  
   const [selectedDate, setSelectedDate] = useState(null); //Состояне для сохранениЯ даты
+  
   const [newTask, setNewTask] = useState({
     title: " ",
     description: " ",
@@ -28,12 +31,11 @@ export default function PopNewTask() {
     postTodo({ taskData, token: user.token })
       .then((data) => {
         console.log(data);
-        setUser(data.tasks);
-        Navigate(appRoutes.MAIN);
+        navigate(appRoutes.MAIN);
       })
       .catch((error) => {
-        // console.log(error);
-        alert(error);
+        console.log(error);
+        // alert(error);
         // setError(error.message)
       });
   };
