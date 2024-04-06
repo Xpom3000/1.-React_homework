@@ -31,21 +31,19 @@ export default function Header() {
             </Link>
             <S.HeaderUser onClick={togglePopup}>Ivan Ivanov</S.HeaderUser>
             {isOpened && (
-              <div
-                className="header__pop-user-set pop-user-set"
+              <S.HeaderPopUseSet
                 id="user-set-target"
               >
-                {/* <a href="">x</a> */}
-                <p className="pop-user-set__name">Ivan Ivanov</p>
-                <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-                <div className="pop-user-set__theme">
-                  <p>Темная тема</p>
-                  <input type="checkbox" className="checkbox" name="checkbox" />
-                </div>
+                <S.PopUseSetName>Ivan Ivanov</S.PopUseSetName>
+                <S.PopUseSetMail>ivan.ivanov@gmail.com</S.PopUseSetMail>
+                <S.PopUseSetTheme>
+                  <S.PopUseSetThemeP>Темная тема</S.PopUseSetThemeP>
+                  <S.Checkbox type="checkbox" name="checkbox" />
+                </S.PopUseSetTheme>
                 <Link to={appRoutes.EXIT}>
                   <S.Hover03 type="button">Выйти</S.Hover03>
                 </Link>
-              </div>
+              </S.HeaderPopUseSet>
             )}
           </S.HeaderNav>
         </S.HeaderBlock>

@@ -213,7 +213,7 @@ body {
   justify-content: space-between;
 }
 
-.pop-user-set__name {
+/* .pop-user-set__name {
   color: #000;
   font-size: 14px;
   font-weight: 500;
@@ -264,7 +264,7 @@ body {
 }
 .pop-user-set__theme input:checked[type="checkbox"]::before {
   left: 12px;
-}
+} */
 .pop-user-set span {
   width: 72px;
   height: 30px;
@@ -404,7 +404,7 @@ background: rgba(0, 0, 0, 0.4);
   line-height: 1;
 }
 
-.calendar {
+/* .calendar {
   width: 182px;
   margin-bottom: 20px;
 }
@@ -478,7 +478,7 @@ background: rgba(0, 0, 0, 0.4);
 }
 .calendar__period {
   padding: 0 7px;
-}
+} */
 
 .nav__actions {
   display: flex;
@@ -1134,4 +1134,5 @@ background: rgba(0, 0, 0, 0.4);
 .radio-toolbar label:hover {
   background-color: #d0ffb7;
   border: 1px solid #1CA92E;
+}
 }
