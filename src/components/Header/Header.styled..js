@@ -51,6 +51,7 @@ export const HeaderBtnMaynNew = styled.span`
 
 export const HeaderUser = styled.div`
   height: 20px;
+  cursor: pointer;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
