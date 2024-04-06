@@ -24,11 +24,11 @@ export default function Header() {
             </a>
           </div>
           <S.HeaderNav>
-            <S.HeaderBtnMaynNew id="btnMainNew">
-              <Link to={appRoutes.NEWTASK}>
+            <Link to={appRoutes.NEWTASK}>
+              <S.HeaderBtnMaynNew id="btnMainNew">
                 Создать новую задачу
-              </Link>
-            </S.HeaderBtnMaynNew>
+              </S.HeaderBtnMaynNew>
+            </Link>
             <S.HeaderUser onClick={togglePopup}>Ivan Ivanov</S.HeaderUser>
             {isOpened && (
               <div

@@ -64,10 +64,10 @@ export default function PopNewTask() {
                 action="#"
               >
                 <S.FormNewBlock>
-                  <label htmlFor="formTitle" className="subttl">
-                    {" "}
+                  <S.Subttl htmlFor="formTitle" >
+                   
                     Название задачи
-                  </label>
+                  </S.Subttl>
                   <S.FormNewInput
                     type="text"
                     name="title"
@@ -79,16 +79,16 @@ export default function PopNewTask() {
                   />
                 </S.FormNewBlock>
                 <S.FormNewBlock>
-                  <label htmlFor="textArea" className="subttl">
+                  <S.Subttl htmlFor="textArea" >
                     Описание задачи
-                  </label>
+                  </S.Subttl>
                   <S.FormNewArea
                     name="description"
                     value={newTask.description}
                     onChange={handleInputChange}
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    // defaultValue={""}
+                    autoFocus=""
                   />
                 </S.FormNewBlock>
               </S.PopNewCardForm>
@@ -99,48 +99,32 @@ export default function PopNewTask() {
             </S.PopNewCardWrap>
             <S.ProdChecbox>
               <div className="radio-toolbar">
-                <input
+                <S.RadioToolbarInputW
                   type="radio"
                   id="radio1"
                   name="topic"
                   value="Web Design"
                   onChange={handleInputChange}
                 />
-                <label htmlFor="radio1">Web Design</label>
-
-                <input
+                <S.RadioToolbarLabelW htmlFor="radio1">Web Design</S.RadioToolbarLabelW>
+                <S.RadioToolbarInputR
                   type="radio"
                   id="radio2"
                   name="topic"
                   value="Research"
                   onChange={handleInputChange}
                 />
-                <label htmlFor="radio2">Research</label>
-
-                <input
+                <S.RadioToolbarLabelR htmlFor="radio2">Research</S.RadioToolbarLabelR>
+                <S.RadioToolbarInputC
                   type="radio"
                   id="radio3"
                   name="topic"
                   value="Copywriting"
                   onChange={handleInputChange}
                 />
-                <label htmlFor="radio3">Copywriting</label>
+                <S.RadioToolbarLabelC htmlFor="radio3">Copywriting</S.RadioToolbarLabelC>
               </div>
             </S.ProdChecbox>
-            {/* <div className="pop-new-card__categories categories">
-              <p className="categories__p subttl">Категория</p>
-              <div className="categories__themes">
-                <div className="categories__theme _orange _active-category">
-                  <p className="_orange">Web Design</p>
-                </div>
-                <div className="categories__theme _green">
-                  <p className="_green">Research</p>
-                </div>
-                <div className="categories__theme _purple">
-                  <p className="_purple">Copywriting</p>
-                </div>
-              </div>
-            </div> */}
             <S.FormNewCreate onClick={handelFormSubmit} id="btnCreate">
               Создать задачу
             </S.FormNewCreate>

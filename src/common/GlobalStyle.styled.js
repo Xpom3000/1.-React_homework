@@ -1,6 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${props => props.theme.body};
+    color: ${props => props.theme.text};
+    transition: all 0.25s linear; // Плавный переход цвета при смене темы
+  }
+
 * {
   margin: 0;
   padding: 0;

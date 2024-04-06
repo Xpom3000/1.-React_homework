@@ -9,6 +9,10 @@ export const PopBrouwseStyled = styled.div`
   top: 0;
   left: 0;
   z-index: 7;
+
+  @media screen and (max-width: 660px) {
+    top: 70px;
+  }
 `;
 export const PopBrouwseContainer = styled.div`
   width: 100%;
@@ -20,6 +24,11 @@ export const PopBrouwseContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
+
+  @media screen and (max-width: 660px) {
+    padding: 0;
+    justify-content: flex-start;
+  }
 `;
 
 export const PopBrouwseBlock = styled.div`
@@ -32,6 +41,10 @@ export const PopBrouwseBlock = styled.div`
   border-radius: 10px;
   border: 0.7px solid #d4dbe5;
   position: relative;
+
+  @media screen and (max-width: 660px) {
+    border-radius: 0;
+  }
 `;
 
 export const PopBrouwseContent = styled.div`
@@ -57,6 +70,10 @@ export const PopBrouwseWrap = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
 `;
 
 export const PopBrouwseBtnBrouwse = styled.div`
@@ -104,7 +121,8 @@ export const BtnBor = styled.span`
 `;
 
 export const BtnBorA = styled(BtnBor)`
-color: #565eef;`
+  color: #565eef;
+`;
 
 export const BtnBg = styled.span`
   border-radius: 4px;
@@ -120,3 +138,40 @@ export const BtnBg = styled.span`
     background-color: #33399b;
   }
 `;
+
+export const Status = styled.div`
+  margin-bottom: 11px;
+`;
+
+export const StatusP = styled.div`
+  margin-bottom: 14px;
+`;
+
+export const StatusThemes = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const StatusTheme = styled.div`
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94a6be;
+  padding: 11px 14px 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
+`;
+
+export const StatusThemeP = styled.div`
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+`;
+
+export const Subttl = styled.label`
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+`
