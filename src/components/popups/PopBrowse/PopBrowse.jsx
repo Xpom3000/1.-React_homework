@@ -18,7 +18,7 @@ export default function PopBrowse() {
             </S.PopBrouwseTopBlock>
             <S.Status>
               <p className="status__p subttl">Статус</p>
-              <div className="status__themes">
+              <S.StatusThemes>
                 <div className="status__theme _hide">
                   <p>Без статуса</p>
                 </div>
@@ -34,28 +34,26 @@ export default function PopBrowse() {
                 <div className="status__theme _hide">
                   <p>Готово</p>
                 </div>
-              </div>
+              </S.StatusThemes>
             </S.Status>
             <S.PopBrouwseWrap>
-              <form
-                className="pop-browse__form form-browse"
+              <S.PopBrowseForm
                 id="formBrowseCard"
                 action="#"
               >
-                <div className="form-browse__block">
+                <S.FormBrowseBlock>
                   <S.Subttl htmlFor="textArea01" >
                     Описание задачи
                   </S.Subttl>
-                  <textarea
-                    className="form-browse__area"
+                  <S.FormBrowseArea
                     name="text"
                     id="textArea01"
                     readOnly=""
                     placeholder="Введите описание задачи..."
                     defaultValue={""}
                   />
-                </div>
-              </form>
+                </S.FormBrowseBlock>
+              </S.PopBrowseForm>
               <Calendar />
             </S.PopBrouwseWrap>
             <S.PopBrouwseBtnBrouwse>

@@ -606,12 +606,12 @@ background: rgba(0, 0, 0, 0.4);
   align-items: flex-start;
   justify-content: space-between;
 } */
-.pop-browse__form {
+/* .pop-browse__form {
   max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
-}
+} */
 .pop-browse__btn-browse,
 .pop-browse__btn-edit {
   display: flex;
@@ -629,7 +629,7 @@ background: rgba(0, 0, 0, 0.4);
 .pop-browse__btn-edit .btn-group span {
   margin-right: 8px;
 }
-
+/* 
 .form-browse__block {
   display: flex;
   flex-direction: column;
@@ -661,7 +661,7 @@ background: rgba(0, 0, 0, 0.4);
   line-height: 1px;
   color: #94a6be;
   letter-spacing: -0.14px;
-}
+} */
 
 /* .status {
   margin-bottom: 11px;

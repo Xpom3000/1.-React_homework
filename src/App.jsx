@@ -8,12 +8,9 @@ import MainPage from "./pages/MainPage/MainPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
 import "./App.css";
-// import PopNewTask from "./components/popups/PopNewCard/PopNewCard";
 import NewCardPage from "./pages/NewTaskPage/NewTaskPage";
 
 export default function App() {
-
-
   return (
     <>
       <Routes>
