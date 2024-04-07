@@ -16,15 +16,16 @@ export default function PopNewTask() {
   const [selectedDate, setSelectedDate] = useState(null); //Состояне для сохранениЯ даты
   
   const [newTask, setNewTask] = useState({
-    title: " ",
-    description: " ",
-    topic: " ",
+    title: "",
+    description: "",
+    topic: "",
   });
   const handelFormSubmit = async (e) => {
     e.preventDefault();
     const taskData = {
       ...newTask,
       date: selectedDate,
+      
     };
     console.log(taskData);
 
