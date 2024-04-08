@@ -3,9 +3,11 @@ import * as S from "./Header.styled.";
 import { Container } from "../../styled/common/Common.styled";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
+import { useUser } from "../../hooks/useUser";
 
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
+  const { user } = useUser();
   function togglePopup() {
     setIsOpened((prev) => !prev);
   }
@@ -29,14 +31,14 @@ export default function Header() {
                 Создать новую задачу
               </S.HeaderBtnMaynNew>
             </Link>
-            <S.HeaderUser onClick={togglePopup}>Ivan Ivanov</S.HeaderUser>
+            <S.HeaderUser onClick={togglePopup}>{user.name} </S.HeaderUser>
             {isOpened && (
               <S.HeaderPopUseSet id="user-set-target">
-                <S.PopUseSetName>Ivan Ivanov</S.PopUseSetName>
-                <S.PopUseSetMail>ivan.ivanov@gmail.com</S.PopUseSetMail>
+                <S.PopUseSetName>{user.name}</S.PopUseSetName>
+                <S.PopUseSetMail>{user.login}</S.PopUseSetMail>
                 <S.PopUseSetTheme>
                   <S.PopUseSetThemeP>Темная тема</S.PopUseSetThemeP>
-                  <S.Checkbox type="checkbox" name="checkbox" />
+                  <S.Checkbox  type="checkbox" name="checkbox" />
                 </S.PopUseSetTheme>
                 <Link to={appRoutes.EXIT}>
                   <S.Hover03 type="button">Выйти</S.Hover03>

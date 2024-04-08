@@ -31,8 +31,8 @@ export default function SignupPage() {
       e.preventDefault();
       setRegBtnLoading(true);
       await signUp(registerData).then((data) => {
-        login(data.user);
         console.log(data)
+        login(data.user);
         navigate(appRoutes.MAIN);
       });
     } catch (error) {
@@ -66,7 +66,7 @@ export default function SignupPage() {
                   type="text"
                   name="login"
                   id="loginReg"
-                  placeholder="Логин"
+                  placeholder="Эл. почта"
                 />
                 <S.ModalInput
                   value={registerData.password}

@@ -6,15 +6,14 @@ import { appRoutes } from "../../../lib/appRoutes";
 import { useUser } from "../../../hooks/useUser";
 import { postTodo } from "../../../Api";
 import { Link } from "react-router-dom";
+import { useTasks } from "../../../hooks/useTasks";
 // import { useTasks } from "../../../hooks/useTasks";
 
 export default function PopNewTask() {
   const { user } = useUser();
-
   const navigate = useNavigate();
-  
+  const { setCards } = useTasks();
   const [selectedDate, setSelectedDate] = useState(null); //Состояне для сохранениЯ даты
-  
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
@@ -25,18 +24,18 @@ export default function PopNewTask() {
     const taskData = {
       ...newTask,
       date: selectedDate,
+      token: user.token,
       
     };
-    console.log(taskData);
 
-    postTodo({ taskData, token: user.token })
+    await postTodo({ taskData, token: user.token })
       .then((data) => {
-        console.log(data);
+        setCards(data.tasks);
         navigate(appRoutes.MAIN);
       })
       .catch((error) => {
         console.log(error);
-        // alert(error);
+        alert(error);
         // setError(error.message)
       });
   };
@@ -101,7 +100,7 @@ export default function PopNewTask() {
             <S.ProdChecbox>
               <div className="radio-toolbar">
                 <S.RadioToolbarInputW
-                  type="radio"
+                  type="radio"    
                   id="radio1"
                   name="topic"
                   value="Web Design"

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { topicHeader } from "../../../lib/topic";
 import * as S from "./Card.styled";
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
 
 export default function Cards({ topic, title, date, id }) {
   return (
@@ -51,7 +53,7 @@ export default function Cards({ topic, title, date, id }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>{date}</p>
+            <p>{format(date, "PP", { locale: ru })}</p>
           </S.CardDate>
         </S.CardContent>
       </S.CardsCard>

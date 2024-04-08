@@ -100,6 +100,7 @@ export const ModalBtnEnter = styled.span`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #ffffff;
+  cursor: pointer;
 
   @media screen and (max-width: 375px) {
     height: 40px;

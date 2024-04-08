@@ -9,7 +9,7 @@ import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
 import { useUser } from "../../hooks/useUser";
-import { setDate } from "date-fns";
+import { useTasks } from "../../hooks/useTasks";
 
 
 const statusList = [
@@ -31,7 +31,7 @@ export default function MainPage() {
     }
   };
 
-  const [cards, setCards] = useState([]);
+  const {cards, setCards} = useTasks();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     getTodos({ token: user.token })
@@ -44,16 +44,17 @@ export default function MainPage() {
       });
   }, [user]);
 
-  function addCard() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: setDate,
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  }
+  // function addCard() {
+  //   const newCard = {
+  //     id: cards.length + 1,
+  //     theme: "Web Design",
+  //     title: "Название задачи",
+  //     date: setDate,
+  //     status: "Без статуса",
+  //   };
+  //   setCards([...cards, newCard]);
+  // }
+  console.log(cards)
   return (
     <>
       <WrapperStyled>
@@ -61,7 +62,7 @@ export default function MainPage() {
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <Outlet />
           {/* pop-up end */}
-          <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
+          <Header  toggleTheme={toggleTheme} theme={theme} />
           {isLoading ? (
             "Загрузка..."
           ) : (

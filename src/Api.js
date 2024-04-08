@@ -17,13 +17,14 @@ export async function getTodos({ token }) {
 }
 
 //Добавить задачу в список.
-export async function postTodo({ token, text }) {
+export async function postTodo({ token, taskData }) {
+  console.log(token, taskData)
   const response = await fetch(basaHost, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
     method: "POST",
-    body: JSON.stringify({ text }),
+    body: JSON.stringify(taskData),
   });
   if (!response.status === 200) {
     throw new Error("Ошибка, не удалось добавить задачу, попробуйте позже");
@@ -64,3 +65,8 @@ export function signIn({ login, password }) {
     return response.json();
   });
 }
+
+//Удаление
+// export async function fetchDeleetTask({ id }) {
+//   const responce = await fetch
+// } 

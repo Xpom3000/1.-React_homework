@@ -69,7 +69,7 @@ export const PopNewCardTtl = styled.h3`
   margin-bottom: 20px;
 `;
 
-export const PopNewNardClose = styled.a`
+export const PopNewNardClose = styled.span`
   position: absolute;
   top: 20px;
   right: 30px;
