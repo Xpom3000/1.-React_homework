@@ -1,11 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme.body};
-    color: ${props => props.theme.text};
+ body {
+    background-color: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
     transition: all 0.25s linear; // Плавный переход цвета при смене темы
   }
+
 
 * {
   margin: 0;
@@ -33,20 +34,15 @@ ul li {
   list-style: none;
 }
 
-/* body {
+body {
   width: 100%;
   height: 100%;
   font-family: "Roboto", sans-serif;
-} */
+}
 
-body {
-    background-color: ${props => props.theme.body};
-    color: ${props => props.theme.text};
-    transition: all 0.25s linear; // Плавный переход цвета при смене темы
-  }
 
 div,
 span,
 a {
   font-family: "Roboto", sans-serif;
-}`
+}`;

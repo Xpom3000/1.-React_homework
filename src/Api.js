@@ -1,9 +1,9 @@
-const basaHost = "https://wedev-api.sky.pro/api/kanban";
+const baseHost = "https://wedev-api.sky.pro/api/kanban";
 const userHost = "https://wedev-api.sky.pro/api/user";
 
 //Получить список задач.
 export async function getTodos({ token }) {
-  const response = await fetch(basaHost, {
+  const response = await fetch(baseHost, {
     metod: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -18,12 +18,12 @@ export async function getTodos({ token }) {
 
 //Добавить задачу в список.
 export async function postTodo({ token, taskData }) {
-  console.log(token, taskData)
-  const response = await fetch(basaHost, {
+  console.log(token, taskData);
+  const response = await fetch(baseHost, {
+    method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    method: "POST",
     body: JSON.stringify(taskData),
   });
   if (!response.status === 200) {
@@ -66,7 +66,60 @@ export function signIn({ login, password }) {
   });
 }
 
-//Удаление
-// export async function fetchDeleetTask({ id }) {
-//   const responce = await fetch
-// } 
+//Изменить задачу
+export async function editTodo( {token , taskData}) {
+  const response = await fetch(baseHost +`/${taskData._id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "PUT",
+    body: JSON.stringify({
+      title: taskData.title,
+      topic: taskData.topic,
+      status: taskData.status,
+      description: taskData.description,
+      date: taskData.date,
+    }),
+  });
+
+  if (!response.status === 201) {
+    throw new Error("Ошибка");
+  }
+  const data = await response.json();
+  return data;
+}
+
+//Удалить задачу
+export async function deleteTodo( {token , id}) {
+  const response = await fetch(baseHost +`/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "DELETE"
+  });
+
+  if (!response.status === 201) {
+    throw new Error("Ошибка");
+  }
+  const data = await response.json();
+  return data;
+}
+
+
+
+
+
+// //Удаление
+// export async function fetchDeleetTask({ token, id }) {
+//   const response = await fetch(baseHost + `/${id}`, {
+//     method: "DELETE",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   if (response.status === 400) {
+//     throw new Error("Ошибка удаления");
+//   }
+//   const data = await response.json();
+//   return data;
+// }

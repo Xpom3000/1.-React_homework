@@ -14,10 +14,10 @@ export const PopNewCard = styled.div`
   @media screen and (max-width: 660px) {
     top: 70px;
   }
-/* 
+
   &:target {
     display: block;
-  } */
+  }
 `;
 
 export const PopNewCardContainer = styled.div`
@@ -73,7 +73,7 @@ export const PopNewNardClose = styled.span`
   position: absolute;
   top: 20px;
   right: 30px;
-  color: FFFFFF;
+  color: #000000;
   cursor: pointer;
 
   &:hover {

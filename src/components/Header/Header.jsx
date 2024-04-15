@@ -37,7 +37,7 @@ export default function Header() {
                 <S.PopUseSetName>{user.name}</S.PopUseSetName>
                 <S.PopUseSetMail>{user.login}</S.PopUseSetMail>
                 <S.PopUseSetTheme>
-                  <S.PopUseSetThemeP>Темная тема</S.PopUseSetThemeP>
+                  <S.PopUseSetThemeP >Темная тема</S.PopUseSetThemeP>
                   <S.Checkbox  type="checkbox" name="checkbox" />
                 </S.PopUseSetTheme>
                 <Link to={appRoutes.EXIT}>

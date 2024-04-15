@@ -7,7 +7,6 @@ import { useUser } from "../../../hooks/useUser";
 import { postTodo } from "../../../Api";
 import { Link } from "react-router-dom";
 import { useTasks } from "../../../hooks/useTasks";
-// import { useTasks } from "../../../hooks/useTasks";
 
 export default function PopNewTask() {
   const { user } = useUser();
@@ -55,7 +54,7 @@ export default function PopNewTask() {
           <S.PopNewCardContent>
             <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
             <Link to={appRoutes.MAIN}>
-              <S.PopNewNardClose>&#10006;</S.PopNewNardClose>
+              <S.PopNewNardClose>Х</S.PopNewNardClose>
             </Link>
             <S.PopNewCardWrap>
               <S.PopNewCardForm

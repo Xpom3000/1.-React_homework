@@ -120,6 +120,7 @@ export const BtnBor = styled.span`
   color: rgb(86, 94, 239);
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
 
   &:hover {
     background-color: #33399b;
@@ -175,6 +176,11 @@ export const StatusThemeP = styled.div`
   line-height: 1;
   letter-spacing: -0.14px;
 `;
+
+export const Gray = styled.p`
+  background: #94A6BE;
+  color: #FFFFFF;`
+
 
 export const Subttl = styled.label`
   color: #000;

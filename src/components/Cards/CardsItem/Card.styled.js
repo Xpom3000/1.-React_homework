@@ -61,14 +61,13 @@ export const TopicText = styled.p`
 
 export const CardTopic = styled.div`
   width: auto;
-  height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
   background-color: ${({ $themeColor }) =>
-    topicStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
+    topicStyles[$themeColor]?.backgroundColor || "#94A6BE"};
 
   ${TopicText} {
-    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#06b16e"};
+    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#FFFFFF"};
   }
 `;
 
