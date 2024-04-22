@@ -53,7 +53,7 @@ export default function Cards({ topic, title, date, id }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>{format(date, "PP", { locale: ru })}</p>
+            <S.CardDateValue>{format(date, "PP", { locale: ru })}</S.CardDateValue>
           </S.CardDate>
         </S.CardContent>
       </S.CardsCard>

@@ -8,7 +8,7 @@ import { useState } from "react";
 import { deleteTodo, editTodo } from "../../../Api";
 import { useUser } from "../../../hooks/useUser";
 import { CardTopic, TopicText } from "../../Cards/CardsItem/Card.styled";
-import { topicHeader } from "../../../lib/topic";
+import { statusList, topicHeader } from "../../../lib/topic";
 
 export default function PopBrowse() {
   const { id } = useParams();
@@ -19,13 +19,16 @@ export default function PopBrowse() {
   const navigate = useNavigate();
   const { user } = useUser();
 
+  const handleEditTask = () => {
+    setIsEdit(!isEdit);
+  };
+
   const [newTask, setNewTask] = useState({
     title: currentTask.title,
     description: currentTask.description,
     topic: currentTask.topic,
   });
 
-  console.log(currentTask);
   if (!currentTask) {
     return <Navigate to={appRoutes.MAIN} />;
   }
@@ -39,20 +42,20 @@ export default function PopBrowse() {
     });
   };
 
-  const handleFormSubmit = async (e) => {
+  const handelFormSubmit = async (e) => {
     e.preventDefault();
     const taskData = {
       ...newTask,
       date: selectedDate,
+      token: user.token,
     };
-    console.log({ taskData });
 
     await editTodo({ token: user.token, taskData })
       .then((todos) => {
         console.log(todos.tasks);
         setCards(todos.tasks);
         setIsLoading(false);
-        // navigate(appRoutes.MAIN);
+        navigate(appRoutes.MAIN);
       })
       .catch((error) => {
         alert(error.message);
@@ -89,71 +92,65 @@ export default function PopBrowse() {
             </S.PopBrouwseTopBlock>
             <S.Status>
               <p className="status__p subttl">Статус</p>
-              <S.StatusThemes>
-                <S.StatusTheme>
-                  <p>Без статуса</p>
-                </S.StatusTheme>
-              </S.StatusThemes>
-              {isEdit && (
-                <S.StatusThemes>
-                  <S.StatusTheme>
-                    <p>Без статуса</p>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <S.Gray>Нужно сделать</S.Gray>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <p>В работе</p>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <p>Тестирование</p>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <p>Готово</p>
-                  </S.StatusTheme>
-                </S.StatusThemes>
+              {isEdit ? (
+                statusList.map((el, index) => (
+                  // eslint-disable-next-line react/jsx-key
+                  <S.StatusThemes>
+                    <S.StatusTheme
+                      type="radio"
+                      id={`radio ${index}`}
+                      name={"status"}
+                      value={el}
+                      onChange={handleInputChange}
+                    ></S.StatusTheme>
+                  </S.StatusThemes>
+                ))
+              ) : (
+                <S.StatusP></S.StatusP>
               )}
             </S.Status>
             <S.PopBrouwseWrap>
               <S.PopBrowseForm id="formBrowseCard" action="#">
                 <S.FormBrowseBlock>
                   <S.Subttl htmlFor="textArea01">Описание задачи</S.Subttl>
-                  <S.FormBrowseArea
-                    name="description"
-                    id="textArea01"
-                    // readOnly=""
-                    value={newTask.description}
-                    onChange={handleInputChange}
-                    placeholder="Введите описание задачи..."
-                  />
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
-              <Calendar
-                selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
-              />
+              {isEdit ? (
+                <Calendar
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                />
+              ) : (
+                <Calendar
+                  selectedDate={currentTask.date}
+                  setSelectedDate={setSelectedDate}
+                />
+              )}
             </S.PopBrouwseWrap>
             <S.PopBrouwseBtnBrouwse>
               <S.BtnGroup>
-                <S.BtnBor onClick={() => setIsEdit(true)}>
-                  Редактировать задачу
-                </S.BtnBor>
+                {isEdit ? (
+                  <S.PopBrowseBtnEdit>
+                    <S.BtnGroup>
+                      <S.BtnBg onClick={handelFormSubmit}>Сохранить</S.BtnBg>
+                      <Link to="#">
+                        <S.BtnBor onClick={navigate(appRoutes.MAIN)}>
+                          Отменить
+                        </S.BtnBor>
+                      </Link>
+                    </S.BtnGroup>
+                  </S.PopBrowseBtnEdit>
+                ) : (
+                  <S.BtnBor onClick={handleEditTask}>
+                    Редактировать задачу
+                  </S.BtnBor>
+                )}
                 <S.BtnBor onClick={handleTaskDelete}>Удалить задачу</S.BtnBor>
+
+                <Link to={appRoutes.MAIN}>
+                  <S.BtnBg>Закрыть</S.BtnBg>
+                </Link>
               </S.BtnGroup>
-              {<S.PopBrowseBtnEdit>
-                <S.BtnGroup>
-                  <S.BtnBg onClick={handleFormSubmit}>Сохранить</S.BtnBg>
-                  <Link to="#">
-                    <S.BtnBor onClick={() => navigate(appRoutes.MAIN)}>
-                      Отменить
-                    </S.BtnBor>
-                  </Link>
-                  <S.BtnBor onClick={handleTaskDelete}>Удалить задачу</S.BtnBor>
-                </S.BtnGroup>
-              </S.PopBrowseBtnEdit>}
-              <Link to={appRoutes.MAIN}>
-                <S.BtnBg>Закрыть</S.BtnBg>
-              </Link>
             </S.PopBrouwseBtnBrouwse>
           </S.PopBrouwseContent>
         </S.PopBrouwseBlock>

@@ -25,3 +25,11 @@ export const topicHeader = {
   "Research": "_green",
   "Copywriting": "_purple",
 };
+
+export const statusList = [
+  "Без статуса",
+  "Нужно сделать",
+  "В работе",
+  "Тестирование",
+  "Готово",
+];

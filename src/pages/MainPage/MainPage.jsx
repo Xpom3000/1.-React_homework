@@ -10,15 +10,8 @@ import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
 import { useUser } from "../../hooks/useUser";
 import { useTasks } from "../../hooks/useTasks";
+import { statusList } from "../../lib/topic";
 
-
-const statusList = [
-  "Без статуса",
-  "Нужно сделать",
-  "В работе",
-  "Тестирование",
-  "Готово",
-];
 
 export default function MainPage() {
   const [theme, setTheme] = useState("light");
@@ -44,24 +37,12 @@ export default function MainPage() {
       });
   }, [user]);
 
-  // function addCard() {
-  //   const newCard = {
-  //     id: cards.length + 1,
-  //     theme: "Web Design",
-  //     title: "Название задачи",
-  //     date: setDate,
-  //     status: "Без статуса",
-  //   };
-  //   setCards([...cards, newCard]);
-  // }
   console.log(cards)
   return (
     <>
       <WrapperStyled>
-        {/* pop-up start*/}
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <Outlet />
-          {/* pop-up end */}
           <Header  toggleTheme={toggleTheme} theme={theme} />
           {isLoading ? (
             "Загрузка..."

@@ -54,15 +54,16 @@ export const CardGrup = styled.div`
 `;
 
 export const TopicText = styled.p`
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 10px;
+  line-height: 14.21px;
+  text-align: center;
 `;
 
 export const CardTopic = styled.div`
   width: auto;
-  padding: 5px 14px;
-  border-radius: 18px;
+  padding: 8px 20px 8px 20px;
+  border-radius: 24px;
   background-color: ${({ $themeColor }) =>
     topicStyles[$themeColor]?.backgroundColor || "#94A6BE"};
 
@@ -112,6 +113,14 @@ export const CardDate = styled.div`
   font-weight: 400;
   line-height: 12px;
   text-align: left;
+`;
+
+export const CardDateValue = styled.p`
+  margin-left: 6px;
+  font-size: 10px;
+  line-height: 13px;
+  color: #94a6be;
+  letter-spacing: 0.2px;
 `;
 
 export const CardTitle = styled.h3`
