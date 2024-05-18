@@ -16,6 +16,9 @@ import { statusList } from "../../lib/topic";
 export default function MainPage() {
   const [theme, setTheme] = useState("light");
   const { user } = useUser();
+  const {cards, setCards} = useTasks();
+  const [isLoading, setIsLoading] = useState(true);
+  
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -24,9 +27,7 @@ export default function MainPage() {
     }
   };
 
-  const {cards, setCards} = useTasks();
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
+    useEffect(() => {
     getTodos({ token: user.token })
       .then((todos) => {
         setCards(todos.tasks);
@@ -35,9 +36,7 @@ export default function MainPage() {
       .catch((error) => {
         alert(error);
       });
-  }, [user]);
-
-  console.log(cards)
+  }, [setCards, user]);
   return (
     <>
       <WrapperStyled>

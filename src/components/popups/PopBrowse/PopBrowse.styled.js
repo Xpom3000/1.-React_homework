@@ -106,7 +106,7 @@ export const PopBrowseBtnEdit = styled.div`
   margin-bottom: 10px;
   padding: 0 14px;
   margin-right: 8px;
-  display: none;
+  /* display: block; */
 `;
 
 export const BtnBor = styled.span`
@@ -141,6 +141,7 @@ export const BtnBg = styled.span`
   margin-right: 8px;
   padding: 10px 14px 10px 14px;
   font-weight: 500;
+  cursor: pointer;
 
   &:hover {
     background-color: #33399b;
@@ -162,7 +163,27 @@ export const StatusThemes = styled.div`
   justify-content: flex-start;
 `;
 
-export const StatusTheme = styled.div`
+export const RadioStatusLabel = styled.label`
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 24px;
+  cursor: pointer;
+  color: rgb(6, 177, 110);
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14.21px;
+  letter-spacing: -1%;
+  text-align: center;
+
+  &:hover {
+    border-radius: 24px;
+    background: rgb(180, 253, 209);
+    opacity: 0.4;
+  }
+`;
+
+export const StatusTheme = styled.label`
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94a6be;
@@ -170,23 +191,42 @@ export const StatusTheme = styled.div`
   margin-right: 7px;
   margin-bottom: 7px;
 `;
+export const StatusThemesInput = styled.input`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
 
-export const StatusThemeP = styled.div`
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
+  &[type="radio"] {
+    display: none;
+  }
+
+  &:checked + label {
+    background-color: #94a6be;
+    border: 1px solid #94a6be;
+    color: #ffffff;
+  }
 `;
-
-export const Gray = styled.p`
-  background: #94A6BE;
-  color: #FFFFFF;`
-
 
 export const Subttl = styled.label`
   color: #000;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
+`;
+
+export const StatusThemeP = styled(Subttl)`
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+`;
+
+export const Gray = styled.p`
+  background: #94a6be;
+  color: #ffffff;
 `;
 
 export const FormBrowseBlock = styled.div`

@@ -67,8 +67,8 @@ export function signIn({ login, password }) {
 }
 
 //Изменить задачу
-export async function editTodo( {token , taskData}) {
-  const response = await fetch(baseHost +`/${taskData._id}`, {
+export async function editTodo( {token , taskData, id}) {
+  const response = await fetch(baseHost +`/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -83,7 +83,7 @@ export async function editTodo( {token , taskData}) {
   });
 
   if (!response.status === 201) {
-    throw new Error("Ошибка");
+    throw new Error("Ошибка редактирования");
   }
   const data = await response.json();
   return data;

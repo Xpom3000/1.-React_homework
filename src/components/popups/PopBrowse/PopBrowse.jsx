@@ -3,36 +3,51 @@ import { appRoutes } from "../../../lib/appRoutes";
 import * as S from "./PopBrowse.styled";
 import Calendar from "../../Calendar/Calendar";
 import { useTasks } from "../../../hooks/useTasks";
-import { Navigate } from "react-router-dom";
-import { useState } from "react";
+// import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { deleteTodo, editTodo } from "../../../Api";
 import { useUser } from "../../../hooks/useUser";
 import { CardTopic, TopicText } from "../../Cards/CardsItem/Card.styled";
-import { topicHeader } from "../../../lib/topic";
+import { statusList, topicHeader } from "../../../lib/topic";
 
 export default function PopBrowse() {
   const { id } = useParams();
-  const { cards, setCards, setIsLoading } = useTasks();
-  const currentTask = cards.find((card) => id === card._id);
-  const [selectedDate, setSelectedDate] = useState(currentTask.date);
+  const { cards, setCards } = useTasks();
+  // const currentTask = cards.find((card) => id === card._id);
+  const [selectedDate, setSelectedDate] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const navigate = useNavigate();
   const { user } = useUser();
 
   const [newTask, setNewTask] = useState({
-    title: currentTask.title,
-    description: currentTask.description,
-    topic: currentTask.topic,
+    title: "",
+    description: "",
+    topic: "",
+    status: "",
   });
 
-  console.log(currentTask);
-  if (!currentTask) {
-    return <Navigate to={appRoutes.MAIN} />;
-  }
+  useEffect(() => {
+    if (cards.length) {
+      const currentTask = cards.find((card) => id === card._id);
+      console.log(currentTask)
+        if (!currentTask) {
+          return navigate(appRoutes.MAIN);
+        }
+        setNewTask({
+          ...newTask,
+          title: currentTask.title || "",
+          description: currentTask.description ||"",
+          topic: currentTask.topic ||"",
+          status:currentTask.status || "",
+        });
+        setSelectedDate(currentTask.date)
+      
+    }
+  }, [cards, id, navigate ]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
-
+    console.log(name, value);
     setNewTask({
       ...newTask, // Копируем текущие данные из состояния
       [name]: value, // Обновляем нужное поле
@@ -47,11 +62,11 @@ export default function PopBrowse() {
     };
     console.log({ taskData });
 
-    await editTodo({ token: user.token, taskData })
+    await editTodo({ token: user.token, taskData, id})
       .then((todos) => {
         console.log(todos.tasks);
         setCards(todos.tasks);
-        setIsLoading(false);
+        // setIsLoading(false);
         // navigate(appRoutes.MAIN);
       })
       .catch((error) => {
@@ -79,37 +94,36 @@ export default function PopBrowse() {
           <S.PopBrouwseContent>
             <S.PopBrouwseTopBlock>
               <S.PopBrouwseTtl>
-                Название задачи: {currentTask.title}
+                Название задачи: {newTask.title}
               </S.PopBrouwseTtl>
-              <CardTopic $themeColor={topicHeader[currentTask.topic]}>
-                <TopicText $themeColor={topicHeader[currentTask.topic]}>
-                  {currentTask.topic}
+              <CardTopic $themeColor={topicHeader[newTask.topic]}>
+                <TopicText $themeColor={topicHeader[newTask.topic]}>
+                  {newTask.topic}
                 </TopicText>
               </CardTopic>
             </S.PopBrouwseTopBlock>
             <S.Status>
               <p className="status__p subttl">Статус</p>
-              <S.StatusThemes>
-                <S.StatusTheme>
-                  <p>Без статуса</p>
-                </S.StatusTheme>
-              </S.StatusThemes>
-              {isEdit && (
+
+              {isEdit ? (
+                <S.StatusThemes>
+                  {statusList.map((status) => (
+                    <S.StatusTheme key={status}>
+                      <S.StatusThemesInput
+                        type="radio"
+                        id="radio1"
+                        name="status"
+                        value={status}
+                        onChange={handleInputChange}
+                      />
+                      <p>{status}</p>
+                    </S.StatusTheme>
+                  ))}
+                </S.StatusThemes>
+              ) : (
                 <S.StatusThemes>
                   <S.StatusTheme>
-                    <p>Без статуса</p>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <S.Gray>Нужно сделать</S.Gray>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <p>В работе</p>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <p>Тестирование</p>
-                  </S.StatusTheme>
-                  <S.StatusTheme>
-                    <p>Готово</p>
+                    <p>{newTask.status}</p>
                   </S.StatusTheme>
                 </S.StatusThemes>
               )}
@@ -134,23 +148,30 @@ export default function PopBrowse() {
               />
             </S.PopBrouwseWrap>
             <S.PopBrouwseBtnBrouwse>
-              <S.BtnGroup>
-                <S.BtnBor onClick={() => setIsEdit(true)}>
-                  Редактировать задачу
-                </S.BtnBor>
-                <S.BtnBor onClick={handleTaskDelete}>Удалить задачу</S.BtnBor>
-              </S.BtnGroup>
-              {<S.PopBrowseBtnEdit>
-                <S.BtnGroup>
-                  <S.BtnBg onClick={handleFormSubmit}>Сохранить</S.BtnBg>
-                  <Link to="#">
+              {isEdit ? (
+                <S.PopBrowseBtnEdit>
+                  <S.BtnGroup>
+                    <Link to={appRoutes.MAIN}>
+                      <S.BtnBg onClick={handleFormSubmit}>Сохранить</S.BtnBg>
+                    </Link>
+                    {/* <Link to="#"> */}
                     <S.BtnBor onClick={() => navigate(appRoutes.MAIN)}>
                       Отменить
                     </S.BtnBor>
-                  </Link>
+                    {/* </Link> */}
+                    <S.BtnBor onClick={handleTaskDelete}>
+                      Удалить задачу
+                    </S.BtnBor>
+                  </S.BtnGroup>
+                </S.PopBrowseBtnEdit>
+              ) : (
+                <S.BtnGroup>
+                  <S.BtnBor onClick={() => setIsEdit(true)}>
+                    Редактировать задачу
+                  </S.BtnBor>
                   <S.BtnBor onClick={handleTaskDelete}>Удалить задачу</S.BtnBor>
                 </S.BtnGroup>
-              </S.PopBrowseBtnEdit>}
+              )}
               <Link to={appRoutes.MAIN}>
                 <S.BtnBg>Закрыть</S.BtnBg>
               </Link>
