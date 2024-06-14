@@ -6,14 +6,13 @@ import { useTasks } from "../../../hooks/useTasks";
 // import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { deleteTodo, editTodo } from "../../../Api";
-import { useUser } from "../../../hooks/useUser";
 import { CardTopic, TopicText } from "../../Cards/CardsItem/Card.styled";
 import { statusList, topicHeader } from "../../../lib/topic";
+import useUser from "../../../hooks/useUser";
 
 export default function PopBrowse() {
   const { id } = useParams();
   const { cards, setCards } = useTasks();
-  // const currentTask = cards.find((card) => id === card._id);
   const [selectedDate, setSelectedDate] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +28,6 @@ export default function PopBrowse() {
   useEffect(() => {
     if (cards.length) {
       const currentTask = cards.find((card) => id === card._id);
-      console.log(currentTask)
         if (!currentTask) {
           return navigate(appRoutes.MAIN);
         }
@@ -40,10 +38,9 @@ export default function PopBrowse() {
           topic: currentTask.topic ||"",
           status:currentTask.status || "",
         });
-        setSelectedDate(currentTask.date)
+        // setSelectedDate(currentTask.date)
       
-    }
-  }, [cards, id, navigate ]);
+    }  }, [cards, id]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
@@ -104,14 +101,13 @@ export default function PopBrowse() {
             </S.PopBrouwseTopBlock>
             <S.Status>
               <p className="status__p subttl">Статус</p>
-
               {isEdit ? (
                 <S.StatusThemes>
                   {statusList.map((status) => (
                     <S.StatusTheme key={status}>
                       <S.StatusThemesInput
                         type="radio"
-                        id="radio1"
+                        id="radio"
                         name="status"
                         value={status}
                         onChange={handleInputChange}
@@ -154,8 +150,8 @@ export default function PopBrowse() {
                     <Link to={appRoutes.MAIN}>
                       <S.BtnBg onClick={handleFormSubmit}>Сохранить</S.BtnBg>
                     </Link>
-                    {/* <Link to="#"> */}
-                    <S.BtnBor onClick={() => navigate(appRoutes.MAIN)}>
+                    {/* <Link to={`/task/${id}`}> */}
+                    <S.BtnBor onClick={() => navigate(appRoutes.TASK)}>
                       Отменить
                     </S.BtnBor>
                     {/* </Link> */}

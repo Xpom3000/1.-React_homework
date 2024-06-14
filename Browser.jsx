@@ -132,9 +132,11 @@ export default function PopBrowse() {
                 {isEdit ? (
                   <S.PopBrowseBtnEdit>
                     <S.BtnGroup>
-                      <S.BtnBg onClick={handelFormSubmit}>Сохранить</S.BtnBg>
-                      <Link to="#">
-                        <S.BtnBor onClick={navigate(appRoutes.MAIN)}>
+                    <Link to={appRoutes.MAIN}>
+                        <S.BtnBg onClick={handelFormSubmit}>Сохранить</S.BtnBg>
+                        </Link>
+                      <Link to={`/task/${id}`}>
+                        <S.BtnBor >
                           Отменить
                         </S.BtnBor>
                       </Link>

@@ -88,8 +88,8 @@ export const PopBrouwseBtnBrouwse = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: 18px;
-  margin-bottom: 48px;
+  /* margin-top: 18px;
+  margin-bottom: 48px; */
 `;
 
 export const BtnGroup = styled.div`
@@ -103,9 +103,9 @@ export const PopBrowseBtnEdit = styled.div`
   justify-content: space-between;
 
   height: 30px;
-  margin-bottom: 10px;
-  padding: 0 14px;
-  margin-right: 8px;
+  /* margin-bottom: 10px; */
+  /* padding: 0 14px;
+  margin-right: 8px; */
   /* display: block; */
 `;
 
@@ -187,18 +187,10 @@ export const StatusTheme = styled.label`
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94a6be;
-  padding: 11px 14px 10px;
+  padding: 10px 10px 10px;
   margin-right: 7px;
   margin-bottom: 7px;
-`;
-export const StatusThemesInput = styled.input`
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
+  cursor: pointer;
 
   &[type="radio"] {
     display: none;
@@ -208,6 +200,29 @@ export const StatusThemesInput = styled.input`
     background-color: #94a6be;
     border: 1px solid #94a6be;
     color: #ffffff;
+  }
+
+  &:hover {
+    border-radius: 24px;
+    background: rgb(148, 166, 190);
+    color: rgb(255, 255, 255);
+    opacity: 0.4;
+  }
+
+  /* &:active {
+      border-radius: 24px;
+      background: rgb(148, 166, 190);
+      color: rgb(255, 255, 255);
+    } */
+`;
+export const StatusThemesInput = styled.input`
+
+    display: none;
+
+  &:active {
+    border-radius: 24px;
+    background: rgb(148, 166, 190);
+    color: rgb(255, 255, 255);
   }
 `;
 
@@ -246,7 +261,7 @@ export const FormBrowseArea = styled.textarea`
   line-height: 1;
   letter-spacing: -0.14px;
   margin-top: 14px;
-  height: 200px;
+  height: 235px;
 
   &::-moz-placeholder {
     font-weight: 400;

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
 import * as S from "./PopExit.styled";
-import { useUser } from "../../../hooks/useUser";
+import useUser from "../../../hooks/useUser";
 
 export default function PopExit() {
   const { logout } = useUser();

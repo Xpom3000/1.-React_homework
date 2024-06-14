@@ -187,13 +187,15 @@ export const RadioToolbarInputW = styled.input`
 
   &:checked + label {
     background-color: #ffe4c2;
-    border: 1px solid #ffe4c2;
+    /* border: 1px solid #ffe4c2; */
   }
 `;
 
 export const RadioToolbarLabelW = styled.label`
   display: inline-block;
-  padding: 2px 9px;
+  /* padding: 2px 9px; */
+  padding: 8px 18px 8px 18px;
+  /* margin: 0px 7px; */
   cursor: pointer;
   border-radius: 24px;
 
@@ -204,6 +206,8 @@ export const RadioToolbarLabelW = styled.label`
   line-height: 14.21px;
   letter-spacing: 0%;
   text-align: center;
+  border-radius: 24px;
+  background: rgb(255 228 194 / 49%);
 
   &:hover {
     border-radius: 24px;
@@ -217,13 +221,15 @@ export const RadioToolbarInputR = styled.input`
 
   &:checked + label {
     background-color: #d0ffb7;
-    border: 1px solid #d0ffb7;
+    /* border: 1px solid #d0ffb7; */
   }
 `;
 
 export const RadioToolbarLabelR = styled.label`
   display: inline-block;
-  padding: 2px 9px;
+  /* padding: 2px 9px; */
+  padding: 8px 18px 8px 18px;
+  margin: 0px 7px;
   border-radius: 24px;
   cursor: pointer;
   color: rgb(6, 177, 110);
@@ -233,6 +239,7 @@ export const RadioToolbarLabelR = styled.label`
   line-height: 14.21px;
   letter-spacing: -1%;
   text-align: center;
+  background-color: #d0ffb78f;
 
   &:hover {
     border-radius: 24px;
@@ -246,13 +253,14 @@ export const RadioToolbarInputC = styled.input`
 
   &:checked + label {
     background-color: #e9d4ff;
-    border: 1px solid #e9d4ff;
+    /* border: 1px solid #e9d4ff; */
   }
 `;
 
 export const RadioToolbarLabelC = styled.label`
   display: inline-block;
-  padding: 2px 9px;
+  /* padding: 2px 9px; */
+  padding: 8px 18px 8px 18px;
   cursor: pointer;
   border-radius: 24px;
 
@@ -263,6 +271,7 @@ export const RadioToolbarLabelC = styled.label`
   line-height: 14.21px;
   letter-spacing: -1%;
   text-align: center;
+  background-color: #e9d4ff57;
   &:hover {
     border-radius: 24px;
     background: rgb(233, 212, 255);

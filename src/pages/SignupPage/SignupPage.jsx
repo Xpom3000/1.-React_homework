@@ -4,7 +4,8 @@ import { Wrapper } from "../../styled/common/Common.styled";
 import * as S from "./SignupPage.styled";
 import { useState } from "react";
 import { signUp } from "../../Api";
-import { useUser } from "../../hooks/useUser";
+import useUser from "../../hooks/useUser";
+
 
 export default function SignupPage() {
   const { login } = useUser();

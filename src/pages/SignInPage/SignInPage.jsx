@@ -4,7 +4,8 @@ import * as S from "./SigninPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { signIn } from "../../Api";
-import { useUser } from "../../hooks/useUser";
+import useUser from "../../hooks/useUser";
+
 
 export default function SigninPage() {
   const { login } = useUser();

@@ -8,9 +8,9 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
-import { useUser } from "../../hooks/useUser";
 import { useTasks } from "../../hooks/useTasks";
 import { statusList } from "../../lib/topic";
+import useUser from "../../hooks/useUser";
 
 
 export default function MainPage() {

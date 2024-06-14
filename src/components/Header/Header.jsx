@@ -3,7 +3,8 @@ import * as S from "./Header.styled.";
 import { Container } from "../../styled/common/Common.styled";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
-import { useUser } from "../../hooks/useUser";
+import useUser from "../../hooks/useUser";
+
 
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);

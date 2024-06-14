@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/user";
 
-export function useUser() {
+export default function useUser() {
     return useContext(UserContext)
 }
