@@ -33,7 +33,7 @@ export default function PopNewTask() {
         navigate(appRoutes.MAIN);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         alert(error);
         // setError(error.message)
       });
