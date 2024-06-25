@@ -11,14 +11,15 @@ import { getTodos } from "../../Api";
 import { useTasks } from "../../hooks/useTasks";
 import { statusList } from "../../lib/topic";
 import useUser from "../../hooks/useUser";
-
+import Loader from "../../components/Loader/Loader";
+// import { Loader} from "../../components/Loader/Loader.jsx"
 
 export default function MainPage() {
   const [theme, setTheme] = useState("light");
   const { user } = useUser();
-  const {cards, setCards} = useTasks();
+  const { cards, setCards } = useTasks();
   const [isLoading, setIsLoading] = useState(true);
-  
+
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -27,7 +28,7 @@ export default function MainPage() {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     getTodos({ token: user.token })
       .then((todos) => {
         setCards(todos.tasks);
@@ -42,9 +43,9 @@ export default function MainPage() {
       <WrapperStyled>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <Outlet />
-          <Header  toggleTheme={toggleTheme} theme={theme} />
+          <Header toggleTheme={toggleTheme} theme={theme} />
           {isLoading ? (
-            "Загрузка..."
+            <Loader />
           ) : (
             <MainContent>
               {statusList.map((status) => (

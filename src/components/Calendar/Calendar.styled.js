@@ -49,3 +49,4 @@ export const CalendarCustom = styled(DayPicker)`
   --rdp-cell-size: 30px;
   --rdp-caption-font-size: 14px;
 `;
+

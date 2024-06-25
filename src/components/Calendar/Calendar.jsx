@@ -3,11 +3,16 @@ import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import ru from "date-fns/locale/ru";
 
-export default function Calendar({ selectedDate , setSelectedDate}) {
-  let footer = <S.ChooseDate>Срок исполнения: </S.ChooseDate>;
-  if (selectedDate) {
+export default function Calendar({ disabled, date, selectedDate , setSelectedDate}) {
+  let footer = (
     <S.ChooseDate>
-       Выберите срок исполнения. {format(selectedDate, "PP", { locale: ru })}
+       {!date && <a>Выберите дату начала</a>}{" "}
+       {date && <a>Срок выподнения: {format(date, "dd.MM.yy", { locale: ru })}.</a>}
+    </S.ChooseDate>)
+  if (selectedDate) {
+    footer = 
+    <S.ChooseDate>
+       Вы выбрали: {format(selectedDate, "dd.MM.yy", { locale: ru })}
       </S.ChooseDate>
   }
   const css = `
@@ -33,7 +38,7 @@ export default function Calendar({ selectedDate , setSelectedDate}) {
     --rdp-background-color-dark: #20202C;
     --rdp-outline: 2px solid var(--rdp-accent-color);
     --rdp-outline-selected: 3px solid var(--rdp-accent-color);
-    --rdp-selected-color: #ffffff;
+    --rdp-selected-color: #f4eeee;
   }
 
   .rdp-caption {
@@ -57,17 +62,19 @@ export default function Calendar({ selectedDate , setSelectedDate}) {
     <S.Calendaric>
     <S.CategoriesP>Даты</S.CategoriesP>
     <S.CalendarCustom
-      locale={ru}
       mode="single"
-      selected={selectedDate}
-      onSelect={setSelectedDate}
+      selected={selectedDate || date}
+      onSelect={disabled ? () => true : setSelectedDate}
       footer={footer}
+      locale={ru}
+      showOutsideDays="true"
+      minDate={format}
+      disableNavWhenOutRange="true"
       
     />
       </S.Calendaric>
       </>
   );
 }
-
 
 
