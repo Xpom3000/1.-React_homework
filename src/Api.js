@@ -26,7 +26,7 @@ export async function postTodo({ token, taskData }) {
     },
     body: JSON.stringify(taskData),
   });
-  if (!response.status === 200) {
+  if (!response.status === 201) {
     throw new Error("Ошибка, не удалось добавить задачу, попробуйте позже");
   }
   const data = await response.json();

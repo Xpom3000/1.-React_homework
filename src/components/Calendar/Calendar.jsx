@@ -6,13 +6,12 @@ import ru from "date-fns/locale/ru";
 export default function Calendar({ disabled, date, selectedDate , setSelectedDate}) {
   let footer = (
     <S.ChooseDate>
-       {!date && <a>Выберите дату начала</a>}{" "}
-       {date && <a>Срок выподнения: {format(date, "dd.MM.yy", { locale: ru })}.</a>}
+       {!date && <a>Выберите срок исполнения.</a>}{" "}
     </S.ChooseDate>)
   if (selectedDate) {
     footer = 
     <S.ChooseDate>
-       Вы выбрали: {format(selectedDate, "dd.MM.yy", { locale: ru })}
+       Срок исполнения: {format(selectedDate, "dd.MM.yy", { locale: ru })}
       </S.ChooseDate>
   }
   const css = `

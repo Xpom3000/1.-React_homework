@@ -1,6 +1,6 @@
 import * as S from "./PopNewCard.styled";
 import Calendar from "../../Calendar/Calendar";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate} from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
 import { postTodo } from "../../../Api";
@@ -12,7 +12,7 @@ export default function PopNewTask() {
   const { user } = useUser();
   const navigate = useNavigate();
   const { setCards } = useTasks();
-  const [selectedDate, setSelectedDate] = useState(null); //Состояне для сохранениЯ даты
+  const [selectedDate, setSelectedDate] = React.useState(null); //Состояне для сохранениЯ даты
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
@@ -34,7 +34,7 @@ export default function PopNewTask() {
       })
       .catch((error) => {
         // console.log(error);
-        alert(error);
+        alert(error.message);
         // setError(error.message)
       });
   };
@@ -71,10 +71,13 @@ export default function PopNewTask() {
                     type="text"
                     name="title"
                     value={newTask.title}
-                    onChange={handleInputChange}
+                    // onChange={handleInputChange}
                     id="formTitle"
                     placeholder="Введите название задачи..."
                     autoFocus=""
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, title: e.target.value })
+                    }
                   />
                 </S.FormNewBlock>
                 <S.FormNewBlock>
@@ -84,16 +87,17 @@ export default function PopNewTask() {
                   <S.FormNewArea
                     name="description"
                     value={newTask.description}
-                    onChange={handleInputChange}
+                    // onChange={handleInputChange}
                     id="textArea"
                     placeholder="Введите описание задачи..."
                     autoFocus=""
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, description: e.target.value })
+                    }
                   />
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar
-                selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
+              <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate}
               />
             </S.PopNewCardWrap>
             <S.ProdChecbox>

@@ -13,10 +13,12 @@ import useUser from "../../../hooks/useUser";
 export default function PopBrowse() {
   const { id } = useParams();
   const { cards, setCards } = useTasks();
-  const [selectedDate, setSelectedDate] = useState("");
+  const currentTask = cards.find((card) => id === card._id);
+  const [selectedDate, setSelectedDate] = useState(currentTask.date,);
   const [isEdit, setIsEdit] = useState(false);
   const navigate = useNavigate();
   const { user } = useUser();
+  // const [isLoading, setIsLoading] = useState(true);
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -27,7 +29,7 @@ export default function PopBrowse() {
 
   useEffect(() => {
     if (cards.length) {
-      const currentTask = cards.find((card) => id === card._id);
+      // const currentTask = cards.find((card) => id === card._id);
         if (!currentTask) {
           return navigate(appRoutes.MAIN);
         }
@@ -36,11 +38,11 @@ export default function PopBrowse() {
           title: currentTask.title || "",
           description: currentTask.description ||"",
           topic: currentTask.topic ||"",
-          status:currentTask.status || "",
+          status: currentTask.status || "",
+          date: currentTask.date || "",
         });
-        // setSelectedDate(currentTask.date)
       
-    }  }, [cards, id]);
+    }  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
@@ -64,7 +66,7 @@ export default function PopBrowse() {
         console.log(todos.tasks);
         setCards(todos.tasks);
         // setIsLoading(false);
-        // navigate(appRoutes.MAIN);
+        navigate(appRoutes.MAIN);
       })
       .catch((error) => {
         alert(error.message);
@@ -150,11 +152,9 @@ export default function PopBrowse() {
                     <Link to={appRoutes.MAIN}>
                       <S.BtnBg onClick={handleFormSubmit}>Сохранить</S.BtnBg>
                     </Link>
-                    {/* <Link to={`/task/${id}`}> */}
-                    <S.BtnBor onClick={() => navigate(appRoutes.TASK)}>
+                    <S.BtnBor onClick={() => navigate(appRoutes.MAIN)}>
                       Отменить
                     </S.BtnBor>
-                    {/* </Link> */}
                     <S.BtnBor onClick={handleTaskDelete}>
                       Удалить задачу
                     </S.BtnBor>
