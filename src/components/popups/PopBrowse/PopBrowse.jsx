@@ -14,7 +14,7 @@ export default function PopBrowse() {
   const { id } = useParams();
   const { cards, setCards } = useTasks();
   const currentTask = cards.find((card) => id === card._id);
-  const [selectedDate, setSelectedDate] = useState(currentTask.date,);
+  const [selectedDate, setSelectedDate] = useState(currentTask.date);
   const [isEdit, setIsEdit] = useState(false);
   const navigate = useNavigate();
   const { user } = useUser();
