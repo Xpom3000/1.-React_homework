@@ -183,7 +183,7 @@ export const RadioStatusLabel = styled.label`
   }
 `;
 
-export const StatusTheme = styled.label`
+export const StatusTheme = styled.label `
   border-radius: 23px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94a6be;
@@ -191,11 +191,6 @@ export const StatusTheme = styled.label`
   margin-right: 7px;
   cursor: pointer;
 
-  &:checked {
-    background-color: #94a6be;
-    border: 1px solid #94a6be;
-    color: #ffffff;
-  }
   &:hover {
     border-radius: 24px;
     background: rgb(148, 166, 190);
@@ -209,9 +204,9 @@ export const StatusThemesInput = styled.input`
   display: none;
   cursor: pointer;
 
-  &:checked + label {
+  &:checked + p {
     background-color: #94a6be;
-    border: 1px solid #94a6be;
+    /* border: 1px solid #94a6be; */
     color: #ffffff;
   }
 `;
@@ -224,7 +219,7 @@ export const Subttl = styled.label`
   cursor: pointer;
 `;
 
-export const StatusThemeP = styled.p`
+export const StatusThemeP = styled.p  `
   /* font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px; */

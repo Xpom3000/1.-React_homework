@@ -107,7 +107,8 @@ export default function PopBrowse() {
                 <S.StatusThemes>
                   {statusList.map((status) => (
                     <S.StatusTheme key={status}
-                     checked={status === newTask.status}>
+                      // checked={status === newTask.status}
+                    >
                       <S.StatusThemesInput
                         type="radio"
                         id="radio"

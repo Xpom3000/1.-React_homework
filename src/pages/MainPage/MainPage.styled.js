@@ -8,21 +8,6 @@ export const WrapperStyled = styled.div`
   background-color: #f1f1f1;
 `;
 
-//Загрузка
-// import url ("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//     font-family: "Poppins", sans-serif;
-// }
-// body {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // min-height: 100vh;
-    // background: #fff;
-// }
 export const Loader = styled.div`
   position: relative;
   width: 200px;
