@@ -102,7 +102,7 @@ export const PopBrowseBtnEdit = styled.div`
   align-items: flex-start;
   justify-content: space-between;
 
-  height: 30px;
+  /* height: 30px; */
   /* margin-bottom: 10px; */
   /* padding: 0 14px;
   margin-right: 8px; */
@@ -184,24 +184,18 @@ export const RadioStatusLabel = styled.label`
 `;
 
 export const StatusTheme = styled.label`
-  border-radius: 24px;
+  border-radius: 23px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94a6be;
   padding: 10px 10px 10px;
   margin-right: 7px;
-  margin-bottom: 7px;
   cursor: pointer;
 
-  &[type="radio"] {
-    display: none;
-  }
-
-  &:checked + label {
+  &:checked {
     background-color: #94a6be;
     border: 1px solid #94a6be;
     color: #ffffff;
   }
-
   &:hover {
     border-radius: 24px;
     background: rgb(148, 166, 190);
@@ -209,34 +203,37 @@ export const StatusTheme = styled.label`
     opacity: 0.4;
   }
 
-  /* &:active {
-      border-radius: 24px;
-      background: rgb(148, 166, 190);
-      color: rgb(255, 255, 255);
-    } */
+ 
 `;
 export const StatusThemesInput = styled.input`
+  display: none;
+  cursor: pointer;
 
-    display: none;
-
-  &:active {
-    border-radius: 24px;
-    background: rgb(148, 166, 190);
-    color: rgb(255, 255, 255);
+  &:checked + label {
+    background-color: #94a6be;
+    border: 1px solid #94a6be;
+    color: #ffffff;
   }
 `;
 
 export const Subttl = styled.label`
-  color: #000;
+  /* color: #000; */
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
+  cursor: pointer;
 `;
 
-export const StatusThemeP = styled(Subttl)`
-  font-size: 14px;
+export const StatusThemeP = styled.p`
+  /* font-size: 14px;
   line-height: 1;
-  letter-spacing: -0.14px;
+  letter-spacing: -0.14px; */
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  
 `;
 
 export const Gray = styled.p`

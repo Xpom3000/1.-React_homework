@@ -64,7 +64,6 @@ export default function PopNewTask() {
               >
                 <S.FormNewBlock>
                   <S.Subttl htmlFor="formTitle" >
-                   
                     Название задачи
                   </S.Subttl>
                   <S.FormNewInput

@@ -106,7 +106,8 @@ export default function PopBrowse() {
               {isEdit ? (
                 <S.StatusThemes>
                   {statusList.map((status) => (
-                    <S.StatusTheme key={status}>
+                    <S.StatusTheme key={status}
+                     checked={status === newTask.status}>
                       <S.StatusThemesInput
                         type="radio"
                         id="radio"
@@ -114,14 +115,14 @@ export default function PopBrowse() {
                         value={status}
                         onChange={handleInputChange}
                       />
-                      <p>{status}</p>
+                      <S.StatusThemeP>{status}</S.StatusThemeP>
                     </S.StatusTheme>
                   ))}
                 </S.StatusThemes>
               ) : (
                 <S.StatusThemes>
                   <S.StatusTheme>
-                    <p>{newTask.status}</p>
+                    <S.StatusThemeP >{newTask.status}</S.StatusThemeP>
                   </S.StatusTheme>
                 </S.StatusThemes>
               )}
