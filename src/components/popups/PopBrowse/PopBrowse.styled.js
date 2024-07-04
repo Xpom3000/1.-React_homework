@@ -88,8 +88,6 @@ export const PopBrouwseBtnBrouwse = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  /* margin-top: 18px;
-  margin-bottom: 48px; */
 `;
 
 export const BtnGroup = styled.div`
@@ -101,12 +99,6 @@ export const PopBrowseBtnEdit = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-
-  /* height: 30px; */
-  /* margin-bottom: 10px; */
-  /* padding: 0 14px;
-  margin-right: 8px; */
-  /* display: block; */
 `;
 
 export const BtnBor = styled.span`
@@ -187,7 +179,6 @@ export const StatusTheme = styled.label `
   border-radius: 23px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94a6be;
-  padding: 10px 10px 10px;
   margin-right: 7px;
   cursor: pointer;
 
@@ -206,13 +197,11 @@ export const StatusThemesInput = styled.input`
 
   &:checked + p {
     background-color: #94a6be;
-    /* border: 1px solid #94a6be; */
     color: #ffffff;
   }
 `;
 
 export const Subttl = styled.label`
-  /* color: #000; */
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
@@ -220,15 +209,29 @@ export const Subttl = styled.label`
 `;
 
 export const StatusThemeP = styled.p  `
-  /* font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px; */
+  display: inline-block;
+  padding: 10px 10px 10px;
+  border-radius: 24px;
+  cursor: pointer;
+  /* color: rgb(6, 177, 110); */
+  font-family: Roboto;
+  font-size: 14px;
 
+  font-weight: 400;
+  line-height: 1;  
+`;
+
+export const StatusThemeS = styled.p  `
+  display: inline-block;
+  padding: 10px 10px 10px;
+  border-radius: 24px;
+  cursor: pointer;
+  background-color: #94a6be;
+  color: #ffffff;
+  font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1;
-  cursor: pointer;
-  
+  line-height: 1;  
 `;
 
 export const Gray = styled.p`

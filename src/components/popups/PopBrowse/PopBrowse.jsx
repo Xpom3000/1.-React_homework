@@ -123,7 +123,7 @@ export default function PopBrowse() {
               ) : (
                 <S.StatusThemes>
                   <S.StatusTheme>
-                    <S.StatusThemeP >{newTask.status}</S.StatusThemeP>
+                    <S.StatusThemeS >{newTask.status}</S.StatusThemeS>
                   </S.StatusTheme>
                 </S.StatusThemes>
               )}
