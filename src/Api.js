@@ -18,7 +18,7 @@ export async function getTodos({ token }) {
 
 //Добавить задачу в список.
 export async function postTodo({ token, taskData }) {
-  console.log(token, taskData);
+  // console.log(token, taskData);
   const response = await fetch(baseHost, {
     method: "POST",
     headers: {

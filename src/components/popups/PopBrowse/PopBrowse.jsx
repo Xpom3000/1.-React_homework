@@ -47,7 +47,7 @@ export default function PopBrowse() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
-    console.log(name, value);
+    // console.log(name, value);
     setNewTask({
       ...newTask, // Копируем текущие данные из состояния
       [name]: value, // Обновляем нужное поле
@@ -60,11 +60,11 @@ export default function PopBrowse() {
       ...newTask,
       date: selectedDate,
     };
-    console.log({ taskData });
+    // console.log({ taskData });
 
     await editTodo({ token: user.token, taskData, id})
       .then((todos) => {
-        console.log(todos.tasks);
+        // console.log(todos.tasks);
         setCards(todos.tasks);
         // setIsLoading(false);
         navigate(appRoutes.MAIN);
