@@ -42,6 +42,7 @@ export default function PopBrowse() {
           date: currentTask.date || "",
         });
       
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }  }, []);
 
   const handleInputChange = (e) => {
