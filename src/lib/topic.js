@@ -15,10 +15,21 @@ export const topicStyles = {
     backgroundColor: "#94a6be",
     color: "#ffffff",
   },
+  // _activeCategory: {
+  //   opacity: 1 !important,
+  // }
 };
 
 export const topicHeader = {
   "Web Design": "_orange",
   "Research": "_green",
-  "Copywriting": " _purple",
+  "Copywriting": "_purple",
 };
+
+export const statusList = [
+  "Без статуса",
+  "Нужно сделать",
+  "В работе",
+  "Тестирование",
+  "Готово",
+];

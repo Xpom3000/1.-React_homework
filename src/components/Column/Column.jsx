@@ -1,4 +1,4 @@
-import CardsItem from "../Cards/CardsItem/Card";
+import CardsItem from "../Cards/CardsItem/Cards";
 import * as S from "./Column.styled";
 
 export default function Column({ title, cardList }) {

@@ -8,20 +8,17 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "../../common/theme/lightTheme";
 import { darkTheme } from "../../common/theme/darkTheme";
 import { getTodos } from "../../Api";
+import { useTasks } from "../../hooks/useTasks";
+import { statusList } from "../../lib/topic";
+import useUser from "../../hooks/useUser";
+import Loader from "../../components/Loader/Loader";
+// import { Loader} from "../../components/Loader/Loader.jsx"
 
-
-
-
-const statusList = [
-  "Без статуса",
-  "Нужно сделать",
-  "В работе",
-  "Тестирование",
-  "Готово",
-];
-
-export default function MainPage({ user }) {
+export default function MainPage() {
   const [theme, setTheme] = useState("light");
+  const { user } = useUser();
+  const { cards, setCards } = useTasks();
+  const [isLoading, setIsLoading] = useState(true);
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -31,50 +28,31 @@ export default function MainPage({ user }) {
     }
   };
 
-  const [cards, setCards] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    getTodos({ token: user.token }).then((todos) => {
-      setCards(todos.tasks);
-      setIsLoading(false);
-    }).catch((error) => {
-      alert(error)
-    })
-  }, [user]);
-
-  function addCard() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  }
+    getTodos({ token: user.token })
+      .then((todos) => {
+        setCards(todos.tasks);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, [setCards, user]);
   return (
     <>
       <WrapperStyled>
-        {/* pop-up start*/}
-        <ThemeProvider
-          theme={theme === "light" ? lightTheme : darkTheme}
-        >
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <Outlet />
-          {/* pop-up end */}
-          <Header addCard={addCard} 
-            toggleTheme={toggleTheme} theme={theme}
-          />
+          <Header toggleTheme={toggleTheme} theme={theme} />
           {isLoading ? (
-            "Загрузка..."
+            <Loader />
           ) : (
             <MainContent>
-                {statusList.map((status) => (
+              {statusList.map((status) => (
                 <Column
                   title={status}
                   key={status}
-                  
-                    cardList={cards.filter((card) => card.status === status)}
-                    
+                  cardList={cards.filter((card) => card.status === status)}
                 />
               ))}
             </MainContent>
