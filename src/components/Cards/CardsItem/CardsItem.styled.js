@@ -1,21 +1,11 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { topicStyles } from "../../../lib/topic";
-import { StyledCard } from "../../Column/Column.styled";
 
-const cardAnimation = keyframes`
-0% {
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    height: auto;
-    opacity: 1;
-  }
-`;
+import { StyledCard } from "../../Column/Column.styled";
 
 export const StyledCardItem = styled.div`
   padding: 5px;
-  animation-name: ${cardAnimation};
+  animation-name: card-animation;
   animation-duration: 500ms;
   animation-timing-function: linear;
 `;
